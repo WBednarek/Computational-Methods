@@ -2,6 +2,7 @@
 #include <vector>
 #include <stdio.h>
 #include "Matrix.h"
+#include "SimpleMathFunctions.h"
 
 
 
@@ -42,6 +43,8 @@ int main()
 	fulfillMatrix(someMatrix);
 	//cout << "This is some matrix: \n" << someMatrix;
 	std::cout << "\nMatrix a is :\n" << someMatrix;
+	double sing = SimpleMathFunctions::sign(-9585);
+	std::cout << "Checking sing of 1 : " << sing;
 	system("pause");
 
 	return 0;

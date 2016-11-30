@@ -9,6 +9,9 @@ Default Constructor
 */
 Matrix::Matrix() : mat()  {}
 
+/**
+Constructor
+*/
 Matrix::Matrix(int numOfRows, int numOfColumns) : mat() 
 {
 
