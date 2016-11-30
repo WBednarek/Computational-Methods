@@ -1,6 +1,9 @@
 #include <iostream>
 #include <vector>
 #include <stdio.h>
+#include "Matrix.h"
+
+
 
 using std::vector;
 using std::cin;
@@ -18,22 +21,27 @@ void displayVector(vector<int> vector)
 }
 
 
+void fulfillMatrix(Matrix& mat)
+{
+	for (int i = 0; i < mat.getNumOfRows(); ++i)
+	{
+		for (int j = 0; j < mat.getNumOfColumns(); ++j)
+		{
+			mat[i][j] = rand() % 10;
+		}
+
+	}
+
+}
+
 int main()
 {
-	typedef vector<int> Row;
-	typedef vector<Row> Matrix;
 
-	Matrix someMatrix(3, Row(5));
-
-	someMatrix[2][2] = 4;
+	Matrix someMatrix(10,10);
 	
-	vector<int> myTestVec = { 187, 1234, 145, -5432, 534 };
-
-	/*
-	cout << "I'm using vector which is filled with following values: "; 
-	displayVector(myTestVec);
-	*/
-	cout <<"This is some matrix element: " << someMatrix[2][2];
+	fulfillMatrix(someMatrix);
+	//cout << "This is some matrix: \n" << someMatrix;
+	std::cout << "\nMatrix a is :\n" << someMatrix;
 	system("pause");
 
 	return 0;
