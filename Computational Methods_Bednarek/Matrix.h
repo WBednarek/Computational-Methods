@@ -4,7 +4,7 @@
 #include <fstream>   
 
 
-class Matrix : private std::vector<std::vector<double> >
+class Matrix : private std::vector< std::vector<double> >
 {
 
 public:

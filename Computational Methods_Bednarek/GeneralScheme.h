@@ -18,16 +18,23 @@ protected:
 public:
 	GeneralScheme();
 
-	GeneralScheme(int sizeOfGrid,
-		double CFL,
+	GeneralScheme(
 		double xMin,
 		double xMax,
 		double dt,
 		double dx);
 
-
+	
 	~GeneralScheme();
 	void calculateDtValue();
 	void calculateDxValue();
+	double getDx();
+	void initializeFirtsSet();
+	void initializeFirtsSetAnalytical();
+	void initializeSecondSet();
+	void initializeSocondSetAnalytical();
+
+	
+	
 };
 
