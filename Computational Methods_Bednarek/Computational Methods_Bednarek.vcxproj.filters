@@ -27,7 +27,7 @@
     <ClCompile Include="ExplicitUpwindScheme.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="SimpleMathFunctions.cpp">
+    <ClCompile Include="MathFunctions.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -41,7 +41,7 @@
     <ClInclude Include="ExplicitUpwindScheme.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="SimpleMathFunctions.h">
+    <ClInclude Include="MathFunctions.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

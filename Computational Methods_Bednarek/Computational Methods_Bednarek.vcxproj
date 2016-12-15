@@ -150,13 +150,13 @@
     <ClCompile Include="GeneralScheme.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Matrix.cpp" />
-    <ClCompile Include="SimpleMathFunctions.cpp" />
+    <ClCompile Include="MathFunctions.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ExplicitUpwindScheme.h" />
     <ClInclude Include="GeneralScheme.h" />
     <ClInclude Include="Matrix.h" />
-    <ClInclude Include="SimpleMathFunctions.h" />
+    <ClInclude Include="MathFunctions.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

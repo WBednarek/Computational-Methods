@@ -2,7 +2,7 @@
 #include <vector>
 #include <stdio.h>
 
-#include "SimpleMathFunctions.h"
+#include "MathFunctions.h"
 #include "GeneralScheme.h"
 
 
@@ -44,10 +44,14 @@ int main()
 	//fulfillMatrix(someMatrix);
 	//cout << "This is some matrix: \n" << someMatrix;
 	//std::cout << "\nMatrix a is :\n" << someMatrix;
-	GeneralScheme general(2.0, 15.3, 1.0, 1.4);
+	GeneralScheme general(-5, 5, 10);
 	general.calculateDxValue();
-	double sing = SimpleMathFunctions::sign(-9585);
-	std::cout << "Checking sing of 1 : " << sing<<"\n Value of dx is "<<general.getDx() << std::endl;
+	general.calculateDtValue();
+	general.initializeFirtsSet();
+	
+	double sing = MathFunctions::sign(-9585);
+	//std::cout << "Checking sing of 1 : " << sing<<"\n Value of dx is "<<general.getDx() << std::endl;
+	std::cout << "\nMatrix a is :\n" <<general.getMatrix();
 	system("pause");
 
 	return 0;
