@@ -47,8 +47,8 @@ int main()
 	GeneralScheme general(-50, 50, 10);
 	general.calculateDxValue();
 	general.calculateDtValue();
-	general.initializeSet(2);
-	general.solveSetAnalytical(2);
+	general.initializeSet(1);
+	general.solveSetAnalytical(1);
 	//std::cout << "Checking sing of 1 : " << sing<<"\n Value of dx is "<<general.getDx() << std::endl;
 	std::cout << "\nMatrix a is :\n" <<general.getMatrix();
 	system("pause");
