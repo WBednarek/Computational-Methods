@@ -18,6 +18,7 @@ protected:
 	double time;
 	int timePoints;
 	int timePoints2;
+	bool isSetInitialised;
 
 
 
@@ -35,11 +36,12 @@ public:
 	double calculateDtValue();
 	double calculateDxValue();
 	double getDx();
-	void initializeFirtsSet();
-	void initializeFirtsSetAnalytical();
-	void initializeSecondSet();
-	void initializeSocondSetAnalytical();
+	void initializeSet(int setNumber);
+	void solveSetAnalytical(int setNumber);
+	void solveSecondSetAnalytical();
 	Matrix GeneralScheme::getMatrix();
+	double GeneralScheme::initializationFunction(int numberOfSet, double functionValue);
+	double GeneralScheme::solutionFunctionAnalytical(int numberOfSet, double actualSpace, double actualTime);
 
 	
 	

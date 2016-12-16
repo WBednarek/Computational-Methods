@@ -1,8 +1,10 @@
 #include "Matrix.h"
 
+/**
+Matrix class allows to  inspired by Dr Peter Sherar's Matrix class
+*/
 
-
-typedef std::vector<std::vector<double> > mat;
+typedef std::vector< std::vector<double> > mat;
 
 /**
 Default Constructor

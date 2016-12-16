@@ -44,12 +44,11 @@ int main()
 	//fulfillMatrix(someMatrix);
 	//cout << "This is some matrix: \n" << someMatrix;
 	//std::cout << "\nMatrix a is :\n" << someMatrix;
-	GeneralScheme general(-5, 5, 10);
+	GeneralScheme general(-50, 50, 10);
 	general.calculateDxValue();
 	general.calculateDtValue();
-	general.initializeFirtsSet();
-	
-	double sing = MathFunctions::sign(-9585);
+	general.initializeSet(2);
+	general.solveSetAnalytical(2);
 	//std::cout << "Checking sing of 1 : " << sing<<"\n Value of dx is "<<general.getDx() << std::endl;
 	std::cout << "\nMatrix a is :\n" <<general.getMatrix();
 	system("pause");
