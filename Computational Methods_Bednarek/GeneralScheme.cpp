@@ -8,21 +8,26 @@
 Default constructor
 */
 
+GeneralScheme::GeneralScheme()
+{
+}
+
 GeneralScheme::GeneralScheme(
 	double xMin,
 	double xMax,
-	double time) : spacePoints(50), CFL(0.999), isSetInitialised(false)
+	double time) : spacePoints(100), CFL(0.999), isSetInitialised(false)
 {
 	(*this).xMin = xMin;
 	(*this).xMax = xMax;
+	(*this).time = time;
 	(*this).dt = (*this).calculateDtValue();
 	(*this).dx = (*this).calculateDxValue();
-	(*this).time = time;
+	
 	(*this).timePoints = std::ceil(time / (((*this).CFL * (*this).dx) / u));
 	
 	matrixOfResults = Matrix(spacePoints, timePoints);
 	(*this).calculateDtValue();
-	(*this).timePoints2 = std::ceil( (*this).time / (*this).dt );
+	//(*this).timePoints2 = std::ceil( (*this).time / (*this).dt );
 	
 }
 
@@ -83,40 +88,42 @@ double GeneralScheme::solutionFunctionAnalytical(int numberOfSet, double actualS
 
 void GeneralScheme::initializeSet(int setNumber)
 {
-	try
-	{
-		double actualValue = xMin;
-		for (int i = 0; i < spacePoints; ++i)
-		{
-			matrixOfResults[i][0] = (1.0 / 2.0) * (*this).initializationFunction(setNumber, actualValue);
-			actualValue += (*this).dx;
-		}
+	
 
-
-		if (setNumber == 1)
+		try
 		{
-			for (int i = 0; i < timePoints; ++i)
+			double actualValue = xMin;
+			for (int i = 0; i < spacePoints; ++i)
 			{
-				matrixOfResults[0][i] = 0;
-				matrixOfResults[spacePoints - 1][i] = 1;
+				matrixOfResults[i][0] = (1.0 / 2.0) * (*this).initializationFunction(setNumber, actualValue);
+				actualValue += (*this).dx;
 			}
-		}
-		else
-		{
-			for (int i = 0; i < timePoints; ++i)
+
+
+			if (setNumber == 1)
 			{
-				matrixOfResults[0][i] = 0;
-				matrixOfResults[spacePoints - 1][i] = 0;
+				for (int i = 0; i < timePoints; ++i)
+				{
+					matrixOfResults[0][i] = 0;
+					matrixOfResults[spacePoints - 1][i] = 1;
+				}
 			}
+			else
+			{
+				for (int i = 0; i < timePoints; ++i)
+				{
+					matrixOfResults[0][i] = 0;
+					matrixOfResults[spacePoints - 1][i] = 0;
+				}
+			}
+
+			(*this).isSetInitialised = true;
+
 		}
-
-		(*this).isSetInitialised = true;
-
-	}
-	catch (std::exception & e)
-	{
-		std::cout << "Standard exception: " << e.what() << std::endl;
-	}
+		catch (std::exception & e)
+		{
+			std::cout << "Standard exception: " << e.what() << std::endl;
+		}
 		
 	
 }
@@ -131,8 +138,9 @@ void GeneralScheme::solveSetAnalytical(int setNumber)
 		{
 			std::cout << "Analytical solution runs and matrix is initialised\n";
 
-			//Variables hold values below 0. Thanks to that negative values could be passed to sign function, loop it makes loop iteration easier.
+			//Variables hold values below 0. Thanks to that negative values could be passed to sign function, it makes loop iteration easier.
 			double actualSpaceValue = xMin;
+			//Variable assinged to dt because time at 0 point is initialised in function initializeSet()
 			double actualTimeValue = dt;
 			for (int i = 1; i < spacePoints; ++i)
 			{
@@ -160,7 +168,6 @@ void GeneralScheme::solveSetAnalytical(int setNumber)
 
 	
 }
-
 
 
 

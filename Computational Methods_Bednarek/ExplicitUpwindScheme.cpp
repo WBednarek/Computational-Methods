@@ -2,11 +2,15 @@
 
 
 
-ExplicitUpwindScheme::ExplicitUpwindScheme()
+ExplicitUpwindScheme::ExplicitUpwindScheme() : methodName("ExplicitUpwindScheme")
 {
 }
 
 
 ExplicitUpwindScheme::~ExplicitUpwindScheme()
+{
+}
+
+void ExplicitUpwindScheme::solveExplicitUpwindScheme()
 {
 }

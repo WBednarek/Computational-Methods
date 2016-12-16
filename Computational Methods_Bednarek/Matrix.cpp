@@ -38,8 +38,35 @@ int Matrix::getNumOfColumns()
 }
 
 
+std::vector<double> & Matrix::getRow(int rowNumber)
+{
+	vector <double>  tmp;
+
+	for (auto i = 0; i < (*this).getNumOfColumns(); ++i)
+	{
+		tmp.push_back((*this)[rowNumber][i]);
+	}
+
+	return tmp;
+}
+
+
+std::vector<double> & Matrix::getColumn(int columnNumber)
+{
+	vector <double>  tmp;
+	
+	for (auto i = 0; i < (*this).getNumOfRows(); ++i)
+	{
+		tmp.push_back((*this)[i][columnNumber]);
+	}
+
+	return tmp;
+}
+
+
 std::ostream& operator<<(std::ostream& os, Matrix& mat)
 {
+	
 	for (int i = 0; i < mat.getNumOfRows(); ++i)
 	{
 		for (int j = 0; j < mat.getNumOfColumns(); ++j)
