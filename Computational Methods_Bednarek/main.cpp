@@ -10,6 +10,7 @@
 #include "ExplicitUpwindScheme.h"
 #include "ImplicitUpwindScheme.h"
 #include "Lax_Wendroff.h"
+#include "Richtmyer_multi_step.h"
 
 using std::vector;
 using std::cin;
@@ -75,6 +76,9 @@ implicitUpwindScheme.solveImplicitUpwindScheme(setNum);
 Lax_Wendroff laxWendroff(initialSettings[0], initialSettings[1], initialSettings[2]);
 laxWendroff.solveLax_Wendroff(setNum);
 
+Richtmyer_multi_step solutionRichtmyer(initialSettings[0], initialSettings[1], initialSettings[2]);
+solutionRichtmyer.solveRichtmyer_multi_step(setNum);
+
 /*
 
 Matrix mat;
@@ -98,17 +102,21 @@ for (auto t = 0; t < timeSetVector.size(); ++t)
 
 	std::ofstream file;
 	std::ofstream laxFile;
+	std::ofstream richtmyer;
 	//Setting type of decimal separator depending on current location. Operation helps to plot charts in programs such as Exel.
 	file.imbue(std::locale(std::cout.getloc(), new DecimalSeparator<char>(',')));
 	laxFile.imbue(std::locale(std::cout.getloc(), new DecimalSeparator<char>(',')));
+	richtmyer.imbue(std::locale(std::cout.getloc(), new DecimalSeparator<char>(',')));
 	//Open file with selected extension
 	file.open("C:/Users/Domowy/Desktop/Results/Results" + std::string(".xls"));
 	laxFile.open("C:/Users/Domowy/Desktop/Results/ResultsLaxWendroff" + std::string(".xls"));
+	richtmyer.open("C:/Users/Domowy/Desktop/Results/ResultsRichtmyer_multi_step" + std::string(".xls"));
 	//Exporting full matrix for each timestep to file
 	//file << general.getMatrix();
 	//file << upwindScheme.getUpwindMatrix();
 	file << implicitUpwindScheme.getImplicitUpwindMatrix();
 	laxFile << laxWendroff.getLax_WendroffdMatrix();
+	richtmyer << solutionRichtmyer.getRichtmyer_multi_stepdMatrix();
 	
 	file.close();
 	
