@@ -41,17 +41,16 @@ void Richtmyer_multi_step::solveRichtmyer_multi_step(int setNumber)
 		//Main time loop iterating for each time point
 		for (int j = 0; j < timePoints - 1; ++j)
 		{
+			//First it is needed to calculate half step according to Richtmyer equation. Those results will be used in final computation.
 			for (int i = 1; i < spacePoints - 1; ++i)
 			{
 
 				halfStepRichtmyer[i][j] = coef1 * halfStepRichtmyer[i + 1][j] + coef2 *halfStepRichtmyer[i - 1][j];
-
 			}
 
-
+			//In this loop previosly calculated half step is used
 			for (int i = 1; i < spacePoints - 1; ++i)
 			{
-
 				RichtmyerResutls[i][j + 1] = RichtmyerResutls[i][j] - coef3 * (halfStepRichtmyer[i + 1][j] - halfStepRichtmyer[i - 1][j]);
 			}
 

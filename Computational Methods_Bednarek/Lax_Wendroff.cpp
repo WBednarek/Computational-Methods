@@ -20,7 +20,7 @@ void Lax_Wendroff::solveLax_Wendroff(int setNumber)
 	try
 	{
 
-		std::cout << "Implicit upwid scheme solution runs and matrix is initialised\n";
+		std::cout << "Lax_Wendroff upwind scheme solution runs and matrix is initialised\n";
 
 		//Variables hold values below 0. Thanks to that negative values could be passed to sign function, it makes loop iteration easier.
 		double actualSpaceValue = xMin;
@@ -42,7 +42,6 @@ void Lax_Wendroff::solveLax_Wendroff(int setNumber)
 			{
 
 				Lax_WendroffResutls[i][j + 1] = T1 * Lax_WendroffResutls[i - 1][j] + T2 * Lax_WendroffResutls[i][j] + T3 * Lax_WendroffResutls[i + 1][j];
-
 			}
 
 		}
