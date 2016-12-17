@@ -27,9 +27,9 @@ void ExplicitUpwindScheme::solveExplicitUpwindScheme(int setNumber)
 			//Variable assinged to dt because time at 0 point is initialised in function initializeSet()
 			double actualTimeValue = dt;
 
-			GeneralScheme upwindIsntance(-50,50,5);
-			upwindIsntance.initializeSet(setNumber);
-			explicitResutls = Matrix(upwindIsntance.getMatrix());
+			(*this).initializeSet(setNumber);
+			explicitResutls = Matrix((*this).getMatrix());
+			
 			
 			for (auto j = 0; j < timePoints-1; ++j)
 			{

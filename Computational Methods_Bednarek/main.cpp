@@ -133,7 +133,7 @@ void runSchemes(int numberOfBoundaryConditionSet, vector <int> initialSettings, 
 	//Open/create file with selected extension. It clold be for instance exel files extensions (.xls; .xlsx).
 	osGeneralScheme.open("C:/Users/Domowy/Desktop/Results/GeneralSchemeResults" + typeOfExtension);
 	osUpwindScheme.open("C:/Users/Domowy/Desktop/Results/UpwindSchemeResults" + typeOfExtension);
-	osImplicitScheme.open("C:/Users/Domowy/Desktop/Results/osImplicitSchemeResults" + typeOfExtension);
+	osImplicitScheme.open("C:/Users/Domowy/Desktop/Results/ImplicitSchemeResults" + typeOfExtension);
 	osLaxFile.open("C:/Users/Domowy/Desktop/Results/LaxWendroffResults" + typeOfExtension);
 	osRichtmyer.open("C:/Users/Domowy/Desktop/Results/RichtmyerMultiStepResults" + typeOfExtension);
 	//Exporting full matrix for each timestep to file
@@ -163,10 +163,10 @@ int main()
 {
 	
 //Number of boundary condition set. 1 for sign boundary set type ; 2 for exp boundary set type 
-int setNum = 2;
+int setNum = 1;
 
 //Initial setings values are respectively: xMin, xMax, time
-vector <int> initialSettings = { -50, 50, 5};
+vector <int> initialSettings = { -20, 20, 5};
 
 //Extension type of file which storing results of schemes computation. It could be Exel (.xls; .xlsx) file type for instance. 
 std::string typeOfExtension = ".xls";

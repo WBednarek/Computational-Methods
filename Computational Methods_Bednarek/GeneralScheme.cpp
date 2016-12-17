@@ -83,16 +83,27 @@ double GeneralScheme::solutionFunctionAnalytical(int numberOfSet, double actualS
 	}
 }
 
+void GeneralScheme::put_timeValues()
+{
 
+	double actualValue = 0;
+	for (int i = 0; i < timePoints; ++i)
+	{
+		matrixOfResults[0][i] = actualValue;
+		actualValue += (*this).dt;
+	}
+
+}
 
 void GeneralScheme::initializeSet(int setNumber)
 {
 	
-
+	
 		try
 		{
+			//put_timeValues();
 			double actualValue = xMin;
-			for (int i = 0; i < spacePoints; ++i)
+			for (int i = 0; i < spacePoints ; ++i)
 			{
 				matrixOfResults[i][0] = (1.0 / 2.0) * (*this).initializationFunction(setNumber, actualValue);
 				actualValue += (*this).dx;
@@ -101,7 +112,7 @@ void GeneralScheme::initializeSet(int setNumber)
 
 			if (setNumber == 1)
 			{
-				for (int i = 0; i < timePoints; ++i)
+				for (int i = 0; i < timePoints ; ++i)
 				{
 					matrixOfResults[0][i] = 0;
 					matrixOfResults[spacePoints - 1][i] = 1;
@@ -109,7 +120,7 @@ void GeneralScheme::initializeSet(int setNumber)
 			}
 			else
 			{
-				for (int i = 0; i < timePoints; ++i)
+				for (int i = 0; i < timePoints ; ++i)
 				{
 					matrixOfResults[0][i] = 0;
 					matrixOfResults[spacePoints - 1][i] = 0;

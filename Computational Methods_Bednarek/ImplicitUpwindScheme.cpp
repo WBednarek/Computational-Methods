@@ -32,16 +32,16 @@ void ImplicitUpwindScheme::solveImplicitUpwindScheme(int setNumber)
 		//Variable assinged to dt because time at 0 point is initialised in function initializeSet()
 		double actualTimeValue = dt;
 
-		GeneralScheme upwindIsntance(-50, 50, 5);
-		upwindIsntance.initializeSet(setNumber);
-		implicitResults = Matrix(upwindIsntance.getMatrix());
+		(*this).initializeSet(setNumber);
+		implicitResults = Matrix((*this).getMatrix());
+		
 
 		for (auto j = 0; j < timePoints - 1; ++j)
 		{
 			for (int i = 1; i < spacePoints; ++i)
 			{
 
-				implicitResults[i][j] = ((-1.0)*CFL*implicitResults[i - 1][j + 1]) + ((1 + CFL) * implicitResults[i][j + 1]);
+				implicitResults[i][j + 1] = (-1.0 * CFL) * (implicitResults[i][j + 1] - implicitResults[i - 1][j + 1]) + implicitResults[i ][j];
 
 			}
 			

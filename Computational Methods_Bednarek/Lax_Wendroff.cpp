@@ -21,15 +21,10 @@ void Lax_Wendroff::solveLax_Wendroff(int setNumber)
 	{
 
 		std::cout << "Lax_Wendroff upwind scheme solution runs and matrix is initialised\n";
-
-		//Variables hold values below 0. Thanks to that negative values could be passed to sign function, it makes loop iteration easier.
-		double actualSpaceValue = xMin;
-		//Variable assinged to dt because time at 0 point is initialised in function initializeSet()
-		double actualTimeValue = dt;
-
-		GeneralScheme upwindIsntance(-50, 50, 5);
-		upwindIsntance.initializeSet(setNumber);
-		Lax_WendroffResutls = Matrix(upwindIsntance.getMatrix());
+		
+		(*this).initializeSet(setNumber);
+		Lax_WendroffResutls = Matrix((*this).getMatrix());
+		
 
 		auto T1 = (CFL * (CFL + 1)) / 2;
 		auto T2 =  1 - (CFL  * CFL) ;

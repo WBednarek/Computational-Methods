@@ -43,6 +43,8 @@ public:
 	double GeneralScheme::initializationFunction(int numberOfSet, double functionValue);
 	double GeneralScheme::solutionFunctionAnalytical(int numberOfSet, double actualSpace, double actualTime);
 
+	void put_timeValues();
+
 	
 
 

@@ -23,13 +23,12 @@ void Richtmyer_multi_step::solveRichtmyer_multi_step(int setNumber)
 
 		std::cout << "Richtmyer_multi_step scheme solution runs and matrix is initialised\n";
 
-		//Initializing General Scheme
-		GeneralScheme upwindIsntance(-50, 50, 5);
+	
 		//Preparing initial data with choosen setNumber: 1 - sign set; 2 - exp set
-		upwindIsntance.initializeSet(setNumber);
-		//Initializing Matrices with initial conditions
-		RichtmyerResutls = Matrix(upwindIsntance.getMatrix());
-		halfStepRichtmyer = Matrix(upwindIsntance.getMatrix());
+		(*this).initializeSet(setNumber);
+		RichtmyerResutls = Matrix((*this).getMatrix());
+		halfStepRichtmyer = Matrix((*this).getMatrix());
+
 
 		//Calculating Richtmyer_multi_step scheme cooeficients before loop for code claryti and performance profit
 		auto coef1 = ( 1 - (CFL/2) ) / 2;
