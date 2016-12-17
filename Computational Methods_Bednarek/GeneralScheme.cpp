@@ -15,7 +15,7 @@ GeneralScheme::GeneralScheme()
 GeneralScheme::GeneralScheme(
 	double xMin,
 	double xMax,
-	double time) : spacePoints(100), CFL(0.999), isSetInitialised(false)
+	double time) : spacePoints(100), CFL(0.99), isSetInitialised(false)
 {
 	(*this).xMin = xMin;
 	(*this).xMax = xMax;

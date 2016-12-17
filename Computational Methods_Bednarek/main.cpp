@@ -1,11 +1,13 @@
+
 #include <iostream>
 #include <vector>
 #include <stdio.h>
 #include <iostream>
-#include <iterator> 
+#include <iterator>
 #include <string>
 #include "MathFunctions.h"
 #include "GeneralScheme.h"
+#include "ExplicitUpwindScheme.h"
 
 using std::vector;
 using std::cin;
@@ -15,90 +17,120 @@ using std::endl;
 
 void displayVector(vector<double> vector)
 {
-	for (auto v : vector)
-	{
-		cout << "\n" << v;
-	}
-	cout << endl;
+for (auto v : vector)
+{
+cout << "\n" << v;
+}
+cout << endl;
 
 }
 
 
 template<typename CharT>
-class SeparatorType : public std::numpunct<CharT>
+class DecimalSeparator : public std::numpunct<CharT>
 {
-
-private:
-	CharT outSeparator;
-
-
-protected:
-	CharT decimal_point()const
-	{
-		return outSeparator;
-	}
-
-
 public:
-	SeparatorType(CharT Separator)
-		: outSeparator(Separator)
+	DecimalSeparator(CharT Separator)
+		: m_Separator(Separator)
 	{}
 
+protected:
+	CharT do_decimal_point()const
+	{
+		return m_Separator;
+	}
+
+private:
+	CharT m_Separator;
 };
 
 
 template<typename T>
-std::ostream &operator <<(std::ostream &out, const std::vector<T> &v) 
+std::ostream &operator <<(std::ostream &out, const std::vector<T> &v)
 {
-	std::copy(v.begin(), v.end(), std::ostream_iterator<T>(out, "\n"));
-	return out;
+std::copy(v.begin(), v.end(), std::ostream_iterator<T>(out, "\n"));
+return out;
 }
 
-void exportToCsv(vector <double> resultsVector, vector <int> timeSetVector)
+
+
+void exportToCsv(int setNum, vector <int> timeSetVector, vector <int> initialSettings)
 {
 
-	GeneralScheme general(-50, 50, 10);
 
-	general.calculateDxValue();
-	general.calculateDtValue();
-	general.initializeSet(2);
-	general.solveSetAnalytical(2);
+GeneralScheme general(initialSettings[0], initialSettings[1], initialSettings[2]);
+general.calculateDxValue();
+general.calculateDtValue();
+general.initializeSet(setNum);
+general.solveSetAnalytical(setNum);
 
-	for (auto t = 0; t < timeSetVector.size(); ++t)
+ExplicitUpwindScheme upwindScheme(initialSettings[0], initialSettings[1], initialSettings[2]);
+upwindScheme.solveExplicitUpwindScheme(setNum);
+Matrix mat;
+
+mat = upwindScheme.getUpwindMatrix();
+
+/*
+vector <double> resultsVector;
+for (auto t = 0; t < timeSetVector.size(); ++t)
+{
+	
+	for (auto i = 0; i < general.getMatrix().getNumOfRows(); ++i)
 	{
-		for (auto i = 0; i < general.getMatrix().getNumOfRows(); ++i)
-		{
-			resultsVector.push_back(general.getMatrix()[i][timeSetVector.at(t)]);
-		}
-
-		std::ofstream file;
-		//Setting type of decimal separator depending on current location. Operation helps to plot charts in programs such as Exel.
-		file.imbue(std::locale(std::cout.getloc(), new SeparatorType<char>(',')));
-		file.open("C:/Users/Domowy/Desktop/Results/result t=" + std::to_string(timeSetVector.at(t)) + std::string(".csv"));
-		file << resultsVector;
-		resultsVector.clear();
-
+		resultsVector.push_back(general.getMatrix()[i][timeSetVector.at(t)]);
 	}
-		
+
+	resultsVector.clear();
+	file.open("C:/Users/Domowy/Desktop/Results/result t=" + std::to_string(timeSetVector.at(t)) + std::string(".xls"));
+}
+	*/
+
+	std::ofstream file;
+	//Setting type of decimal separator depending on current location. Operation helps to plot charts in programs such as Exel.
+	file.imbue(std::locale(std::cout.getloc(), new DecimalSeparator<char>(',')));
+	//Open file with selected extension
+	file.open("C:/Users/Domowy/Desktop/Results/result" + std::string(".xls"));
+	//Exporting full matrix for each timestep to file
+	//file << general.getMatrix();
+	file << upwindScheme.getUpwindMatrix();
+	
+	file.close();
+	
+
+/*
+vector <double> resultsVector;
+for (auto t = 0; t < timeSetVector.size(); ++t)
+{
+for (auto i = 0; i < upwindScheme.getUpwindMatrix().getNumOfRows(); ++i)
+{
+resultsVector.push_back(upwindScheme.getUpwindMatrix()[i][timeSetVector.at(t)]);
+}
+*/
+
+
+
+
 
 }
 
 int main()
 {
-	std::cout.imbue(std::locale(std::cout.getloc(), new SeparatorType<char>(',')));
-	
-	vector <int> setNumber = { 1, 2, 3 };
-	int setNum = 2;
-	vector <double> results;
-	vector <int> timeSet = { 5,10 };
+std::cout.imbue(std::locale(std::cout.getloc(), new DecimalSeparator<char>(',')));
 
-	//displayVector(general.getMatrix().getColumn(5));
-	//std::cout << "\nMatrix a is :\n" <<general.getMatrix();
-	displayVector(results);
-	exportToCsv(results, timeSet);
-	//system("pause");
+vector <int> setNumber = { 1, 2, 3 };
+int setNum = 2;
+//Initial setings values are respectively: xMin, xMax, time
+vector <int> initialSettings = { -50, 50, 5};
+vector <int> timeSet = { 5,10 };
 
-	return 0;
+//vector <double> results = { 231.43, 432.434, 3.2 };
+//displayVector(general.getMatrix().getColumn(5));
+//std::cout << "\nMatrix a is :\n" << mat;
+//displayVector(results);
+exportToCsv(setNum, timeSet, initialSettings);
+//system("pause");
+
+return 0;
 }
 
 

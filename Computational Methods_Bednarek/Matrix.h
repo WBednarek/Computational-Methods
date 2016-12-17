@@ -16,11 +16,19 @@ public:
 	std::shared_ptr < std::vector<double> > tmpVec;
 	Matrix(int numOfRows, int numOfColumns);
 	
-	int Matrix::getNumOfRows();
-	int Matrix::getNumOfColumns();
+	Matrix(const Matrix & m);
+
+	int getNumOfRows() const;
+
+	int getNumOfColumns() const;
+
+
 	std::vector<double>& getRow(int rowNumber);
 	std::vector<double> & Matrix::getColumn(int columnnumber);
 
 	friend std::ostream& operator<<(std::ostream& os, Matrix& mat);
+	friend std::ofstream& operator<<(std::ofstream& ofs,
+		const Matrix& m);
+	Matrix& Matrix::operator=(const Matrix& m);
 
 };

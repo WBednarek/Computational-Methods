@@ -38,12 +38,14 @@ public:
 	double getDx();
 	void initializeSet(int setNumber);
 	void solveSetAnalytical(int setNumber);
-	void solveSecondSetAnalytical();
 	Matrix GeneralScheme::getMatrix();
 	double GeneralScheme::initializationFunction(int numberOfSet, double functionValue);
 	double GeneralScheme::solutionFunctionAnalytical(int numberOfSet, double actualSpace, double actualTime);
 
 	
-	
+
+
+
+
 };
 

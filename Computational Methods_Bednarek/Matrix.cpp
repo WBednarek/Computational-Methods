@@ -27,12 +27,27 @@ Matrix::Matrix(int numOfRows, int numOfColumns) : mat()
 	
 }
 
-int Matrix::getNumOfRows() 
+//Copy constructor
+Matrix::Matrix(const Matrix& m) : std::vector<std::vector<double> >()
+{
+	// set the size of the rows
+	(*this).resize(m.size());
+	// set the size of the columns
+	std::size_t i;
+	for (i = 0; i < m.size(); i++) (*this)[i].resize(m[0].size());
+
+	// copy the elements
+	for (int i = 0; i < m.getNumOfRows(); i++)
+		for (int j = 0; j < m.getNumOfColumns(); j++)
+			(*this)[i][j] = m[i][j];
+}
+
+int Matrix::getNumOfRows() const
 {
 	return (*this).size();
 }
 
-int Matrix::getNumOfColumns() 
+int Matrix::getNumOfColumns() const
 {
 	return (*this)[0].size();
 }
@@ -77,6 +92,34 @@ std::ostream& operator<<(std::ostream& os, Matrix& mat)
 	}
 
 	return os;
+}
+
+
+std::ofstream& operator<<(std::ofstream& ofs, const Matrix& m) {
+	//put matrix rownumber in first line (even if it is zero)
+	ofs << m.getNumOfRows() << std::endl;
+	//put matrix columnnumber in second line (even if it is zero)
+	ofs << m.getNumOfColumns() << std::endl;
+	//put data in third line (if size==zero nothing will be put)
+	for (int i = 0; i<m.getNumOfRows(); i++) {
+		for (int j = 0; j<m.getNumOfColumns(); j++) ofs << m[i][j] << "\t";
+		ofs << std::endl;
+	}
+	return ofs;
+}
+
+
+Matrix& Matrix::operator=(const Matrix& m)
+{
+	(*this).resize(m.size());
+	std::size_t i;
+	std::size_t j;
+	for (i = 0; i < m.size(); i++) (*this)[i].resize(m[0].size());
+
+	for (i = 0; i<m.size(); i++)
+		for (j = 0; j<m[0].size(); j++)
+			(*this)[i][j] = m[i][j];
+	return *this;
 }
 
 

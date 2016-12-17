@@ -14,13 +14,18 @@ class ExplicitUpwindScheme : public GeneralScheme
 {
 
 	std::string methodName;
+	Matrix explicitResutls;
 public:
 	
-	ExplicitUpwindScheme();
+	ExplicitUpwindScheme(double xMin,
+		double xMax,
+		double time);
 	~ExplicitUpwindScheme();
 
 
-	void solveExplicitUpwindScheme();
+	void solveExplicitUpwindScheme(int setNumber);
+	//double solutionFunctionExplicitScheme(int numberOfSet, Matrix toUpwindSchemeCalculations);
+	Matrix ExplicitUpwindScheme::getUpwindMatrix();
 
 };
 
