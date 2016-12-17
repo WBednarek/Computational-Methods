@@ -8,6 +8,8 @@
 #include "MathFunctions.h"
 #include "GeneralScheme.h"
 #include "ExplicitUpwindScheme.h"
+#include "ImplicitUpwindScheme.h"
+#include "Lax_Wendroff.h"
 
 using std::vector;
 using std::cin;
@@ -57,20 +59,29 @@ return out;
 void exportToCsv(int setNum, vector <int> timeSetVector, vector <int> initialSettings)
 {
 
-
+/*
 GeneralScheme general(initialSettings[0], initialSettings[1], initialSettings[2]);
 general.calculateDxValue();
 general.calculateDtValue();
 general.initializeSet(setNum);
 general.solveSetAnalytical(setNum);
-
+*/
 ExplicitUpwindScheme upwindScheme(initialSettings[0], initialSettings[1], initialSettings[2]);
 upwindScheme.solveExplicitUpwindScheme(setNum);
+
+ImplicitUpwindScheme implicitUpwindScheme(initialSettings[0], initialSettings[1], initialSettings[2]);
+implicitUpwindScheme.solveImplicitUpwindScheme(setNum);
+
+Lax_Wendroff laxWendroff(initialSettings[0], initialSettings[1], initialSettings[2]);
+laxWendroff.solveLax_Wendroff(setNum);
+
+/*
+
 Matrix mat;
 
 mat = upwindScheme.getUpwindMatrix();
 
-/*
+
 vector <double> resultsVector;
 for (auto t = 0; t < timeSetVector.size(); ++t)
 {
@@ -86,13 +97,18 @@ for (auto t = 0; t < timeSetVector.size(); ++t)
 	*/
 
 	std::ofstream file;
+	std::ofstream laxFile;
 	//Setting type of decimal separator depending on current location. Operation helps to plot charts in programs such as Exel.
 	file.imbue(std::locale(std::cout.getloc(), new DecimalSeparator<char>(',')));
+	laxFile.imbue(std::locale(std::cout.getloc(), new DecimalSeparator<char>(',')));
 	//Open file with selected extension
-	file.open("C:/Users/Domowy/Desktop/Results/result" + std::string(".xls"));
+	file.open("C:/Users/Domowy/Desktop/Results/Results" + std::string(".xls"));
+	laxFile.open("C:/Users/Domowy/Desktop/Results/ResultsLaxWendroff" + std::string(".xls"));
 	//Exporting full matrix for each timestep to file
 	//file << general.getMatrix();
-	file << upwindScheme.getUpwindMatrix();
+	//file << upwindScheme.getUpwindMatrix();
+	file << implicitUpwindScheme.getImplicitUpwindMatrix();
+	laxFile << laxWendroff.getLax_WendroffdMatrix();
 	
 	file.close();
 	
@@ -106,10 +122,6 @@ for (auto i = 0; i < upwindScheme.getUpwindMatrix().getNumOfRows(); ++i)
 resultsVector.push_back(upwindScheme.getUpwindMatrix()[i][timeSetVector.at(t)]);
 }
 */
-
-
-
-
 
 }
 

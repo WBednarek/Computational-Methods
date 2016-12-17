@@ -30,6 +30,15 @@
     <ClCompile Include="MathFunctions.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ImplicitUpwindScheme.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Lax_Wendroff.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Richtmyer_multi_step.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Matrix.h">
@@ -42,6 +51,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="MathFunctions.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ImplicitUpwindScheme.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Lax_Wendroff.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Richtmyer_multi_step.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

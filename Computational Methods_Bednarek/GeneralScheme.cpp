@@ -51,8 +51,7 @@ double GeneralScheme::calculateDxValue()
 
 
 double GeneralScheme::getDx()
-{
-	
+{	
 	return dx;
 }
 

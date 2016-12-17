@@ -148,15 +148,21 @@
   <ItemGroup>
     <ClCompile Include="ExplicitUpwindScheme.cpp" />
     <ClCompile Include="GeneralScheme.cpp" />
+    <ClCompile Include="ImplicitUpwindScheme.cpp" />
+    <ClCompile Include="Lax_Wendroff.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Matrix.cpp" />
     <ClCompile Include="MathFunctions.cpp" />
+    <ClCompile Include="Richtmyer_multi_step.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ExplicitUpwindScheme.h" />
     <ClInclude Include="GeneralScheme.h" />
+    <ClInclude Include="ImplicitUpwindScheme.h" />
+    <ClInclude Include="Lax_Wendroff.h" />
     <ClInclude Include="Matrix.h" />
     <ClInclude Include="MathFunctions.h" />
+    <ClInclude Include="Richtmyer_multi_step.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

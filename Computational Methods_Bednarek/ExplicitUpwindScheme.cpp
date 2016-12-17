@@ -30,15 +30,19 @@ void ExplicitUpwindScheme::solveExplicitUpwindScheme(int setNumber)
 			GeneralScheme upwindIsntance(-50,50,5);
 			upwindIsntance.initializeSet(setNumber);
 			explicitResutls = Matrix(upwindIsntance.getMatrix());
-			for (int i = 1; i < spacePoints; ++i)
+			
+			for (auto j = 0; j < timePoints-1; ++j)
 			{
-				for (auto j = 0; j < timePoints; ++j)
+				for (int i = 1; i < spacePoints; ++i)
 				{
-					explicitResutls[i][j] = (upwindIsntance.getMatrix()[i][j] - CFL*(upwindIsntance.getMatrix()[i][j] - upwindIsntance.getMatrix()[i - 1][j]));
-					actualTimeValue += dt;
+				
+					explicitResutls[i][j+1] = (explicitResutls[i][j] - CFL*(explicitResutls[i][j] - explicitResutls[i - 1][j]));
+					//explicitResutls[i][j + 1] = (1 - CFL) * (upwindIsntance.getMatrix()[i][j]) + (CFL * upwindIsntance.getMatrix()[i - 1][j]);
+					actualSpaceValue += dx;
+					
 				}			
-				actualSpaceValue += dx;
-				actualTimeValue = dt;
+				actualTimeValue += dt;
+				actualSpaceValue = dx;
 				
 			}
 			

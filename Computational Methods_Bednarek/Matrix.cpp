@@ -97,9 +97,9 @@ std::ostream& operator<<(std::ostream& os, Matrix& mat)
 
 std::ofstream& operator<<(std::ofstream& ofs, const Matrix& m) {
 	//put matrix rownumber in first line (even if it is zero)
-	ofs << m.getNumOfRows() << std::endl;
+	//ofs << m.getNumOfRows() << std::endl;
 	//put matrix columnnumber in second line (even if it is zero)
-	ofs << m.getNumOfColumns() << std::endl;
+	//ofs << m.getNumOfColumns() << std::endl;
 	//put data in third line (if size==zero nothing will be put)
 	for (int i = 0; i<m.getNumOfRows(); i++) {
 		for (int j = 0; j<m.getNumOfColumns(); j++) ofs << m[i][j] << "\t";
