@@ -1,6 +1,3 @@
-﻿  GeneralScheme.cpp
-c:\users\domowy\desktop\dokumenty wiktora\v rok\computional methods\assignment code wbednarek\computational-methods\computational methods_bednarek\generalscheme.cpp(26): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-c:\users\domowy\desktop\dokumenty wiktora\v rok\computional methods\assignment code wbednarek\computational-methods\computational methods_bednarek\generalscheme.cpp(71): warning C4715: 'GeneralScheme::initializationFunction': not all control paths return a value
-c:\users\domowy\desktop\dokumenty wiktora\v rok\computional methods\assignment code wbednarek\computational-methods\computational methods_bednarek\generalscheme.cpp(84): warning C4715: 'GeneralScheme::solutionFunctionAnalytical': not all control paths return a value
+﻿  main.cpp
   Computational Methods_Bednarek.vcxproj -> C:\Users\Domowy\Desktop\Dokumenty Wiktora\V rok\Computional Methods\Assignment Code WBednarek\Computational-Methods\Debug\Computational Methods_Bednarek.exe
   Computational Methods_Bednarek.vcxproj -> C:\Users\Domowy\Desktop\Dokumenty Wiktora\V rok\Computional Methods\Assignment Code WBednarek\Computational-Methods\Debug\Computational Methods_Bednarek.pdb (Full PDB)

@@ -12,29 +12,23 @@ GeneralScheme::GeneralScheme()
 {
 }
 
-GeneralScheme::GeneralScheme(
-	double xMin,
-	double xMax,
-	double time) : spacePoints(100), CFL(0.99), isSetInitialised(false)
+GeneralScheme::~GeneralScheme()
 {
-	(*this).xMin = xMin;
-	(*this).xMax = xMax;
-	(*this).time = time;
-	(*this).dt = (*this).calculateDtValue();
-	(*this).dx = (*this).calculateDxValue();
-	
-	(*this).timePoints = std::ceil(time / (((*this).CFL * (*this).dx) / u));
-	
-	matrixOfResults = Matrix(spacePoints, timePoints);
-	(*this).calculateDtValue();
-	//(*this).timePoints2 = std::ceil( (*this).time / (*this).dt );
 	
 }
 
 
-GeneralScheme::~GeneralScheme()
+GeneralScheme::GeneralScheme(double xMin, double xMax, double time, double spacePoints, double CFL) 
+	:xMin(xMin), xMax(xMax), time(time), spacePoints(spacePoints), CFL(CFL), isSetInitialised(false)
 {
 	
+	(*this).dt = (*this).calculateDtValue();
+	(*this).dx = (*this).calculateDxValue();
+    (*this).numberOfTimePoints = std::ceil(time / (((*this).CFL * (*this).dx) / u));
+
+	matrixOfResults = Matrix(spacePoints, numberOfTimePoints);
+	(*this).calculateDtValue();
+
 }
 
 double GeneralScheme::calculateDtValue()
@@ -87,7 +81,7 @@ void GeneralScheme::put_timeValues()
 {
 
 	double actualValue = 0;
-	for (int i = 0; i < timePoints; ++i)
+	for (int i = 0; i < numberOfTimePoints; ++i)
 	{
 		matrixOfResults[0][i] = actualValue;
 		actualValue += (*this).dt;
@@ -112,7 +106,7 @@ void GeneralScheme::initializeSet(int setNumber)
 
 			if (setNumber == 1)
 			{
-				for (int i = 0; i < timePoints ; ++i)
+				for (int i = 0; i < numberOfTimePoints ; ++i)
 				{
 					matrixOfResults[0][i] = 0;
 					matrixOfResults[spacePoints - 1][i] = 1;
@@ -120,7 +114,7 @@ void GeneralScheme::initializeSet(int setNumber)
 			}
 			else
 			{
-				for (int i = 0; i < timePoints ; ++i)
+				for (int i = 0; i < numberOfTimePoints ; ++i)
 				{
 					matrixOfResults[0][i] = 0;
 					matrixOfResults[spacePoints - 1][i] = 0;
@@ -142,6 +136,7 @@ void GeneralScheme::initializeSet(int setNumber)
 
 void GeneralScheme::solveSetAnalytical(int setNumber)
 {
+	(*this).initializeSet(setNumber);
 	try
 	{
 		if ((*this).isSetInitialised == true)
@@ -154,7 +149,7 @@ void GeneralScheme::solveSetAnalytical(int setNumber)
 			double actualTimeValue = dt;
 			for (int i = 1; i < spacePoints; ++i)
 			{
-				for (auto j = 1; j < timePoints; ++j)
+				for (auto j = 1; j < numberOfTimePoints; ++j)
 				{
 					matrixOfResults[i][j] = solutionFunctionAnalytical(setNumber, actualSpaceValue, actualTimeValue);
 					actualTimeValue += dt;				

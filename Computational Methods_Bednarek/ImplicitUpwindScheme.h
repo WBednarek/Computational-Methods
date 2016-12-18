@@ -8,7 +8,11 @@ class ImplicitUpwindScheme :
 	Matrix implicitResults;
 public:
 	ImplicitUpwindScheme();
-	ImplicitUpwindScheme(double xMin, double xMax, double time);
+	ImplicitUpwindScheme(double xMin,
+		double xMax,
+		double time,
+		double spacePoints,
+		double CFL);
 	virtual ~ImplicitUpwindScheme();
 	void solveImplicitUpwindScheme(int setNumber);
 	Matrix getImplicitUpwindMatrix();

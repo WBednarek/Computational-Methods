@@ -19,7 +19,9 @@ public:
 	
 	ExplicitUpwindScheme(double xMin,
 		double xMax,
-		double time);
+		double time,
+		double spacePoints,
+		double CFL);
 	~ExplicitUpwindScheme();
 
 

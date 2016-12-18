@@ -16,7 +16,7 @@ protected:
 	double dt;
 	double dx;
 	double time;
-	int timePoints;
+	int numberOfTimePoints;
 	int timePoints2;
 	bool isSetInitialised;
 
@@ -27,10 +27,14 @@ protected:
 public:
 	GeneralScheme();
 
+	
+
 	GeneralScheme(
-		double xMin,
-		double xMax,
-		double time);
+		double xMin, 
+		double xMax, 
+		double time, 
+		double spacePoints, 
+		double CFL);
 
 	
 	~GeneralScheme();

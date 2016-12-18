@@ -6,8 +6,11 @@ Richtmyer_multi_step::Richtmyer_multi_step()
 {
 }
 
-Richtmyer_multi_step::Richtmyer_multi_step(double xMin, double xMax, double time) :
-	 GeneralScheme::GeneralScheme(xMin, xMax, time), methodName("RichtmyerMultiStepScheme")
+Richtmyer_multi_step::Richtmyer_multi_step(double xMin,
+	double xMax,
+	double time,
+	double spacePoints,
+	double CFL) : GeneralScheme::GeneralScheme(xMin, xMax, time, spacePoints, CFL), methodName("RichtmyerMultiStepScheme")
 {
 }
 
@@ -23,7 +26,6 @@ void Richtmyer_multi_step::solveRichtmyer_multi_step(int setNumber)
 
 		std::cout << "Richtmyer_multi_step scheme solution runs and matrix is initialised\n";
 
-	
 		//Preparing initial data with choosen setNumber: 1 - sign set; 2 - exp set
 		(*this).initializeSet(setNumber);
 		RichtmyerResutls = Matrix((*this).getMatrix());
@@ -38,7 +40,7 @@ void Richtmyer_multi_step::solveRichtmyer_multi_step(int setNumber)
 		
 
 		//Main time loop iterating for each time point
-		for (int j = 0; j < timePoints - 1; ++j)
+		for (int j = 0; j < numberOfTimePoints - 1; ++j)
 		{
 			//First it is needed to calculate half step according to Richtmyer equation. Those results will be used in final computation.
 			for (int i = 1; i < spacePoints - 1; ++i)

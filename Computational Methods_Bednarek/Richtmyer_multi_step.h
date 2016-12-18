@@ -12,7 +12,9 @@ public:
 
 	Richtmyer_multi_step(double xMin,
 		double xMax,
-		double time);
+		double time,
+		double spacePoints,
+		double CFL);
 
 	virtual ~Richtmyer_multi_step();
 

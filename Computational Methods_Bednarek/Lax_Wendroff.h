@@ -12,7 +12,9 @@ public:
 
 	Lax_Wendroff(double xMin,
 		double xMax,
-		double time);
+		double time,
+		double spacePoints,
+		double CFL);
 
 	virtual ~Lax_Wendroff();
 

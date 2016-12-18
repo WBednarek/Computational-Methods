@@ -5,6 +5,7 @@
 #include <iostream>
 #include <iterator>
 #include <string>
+#include <memory>
 #include "MathFunctions.h"
 #include "GeneralScheme.h"
 #include "ExplicitUpwindScheme.h"
@@ -57,66 +58,38 @@ return out;
 }
 
 
-
-void  calculateAllSchemes( int numberOfBoundaryConditionSet, vector <int> initialSettings)
-{
-
-	
-	
-
-	/*
-	switch (functionToCompute)
-	{
-	case 1:	
-		general.initializeSet(numberOfBoundaryConditionSet);
-		general.solveSetAnalytical(numberOfBoundaryConditionSet);
-		return general;	
-		break;
-	case 2:
-		upwindScheme.solveExplicitUpwindScheme(numberOfBoundaryConditionSet);
-		return upwindScheme;
-		break;
-	case 3:
-		implicitUpwindScheme.solveImplicitUpwindScheme(numberOfBoundaryConditionSet);
-		return implicitUpwindScheme;
-		break;
-	case 4:
-		laxWendroff.solveLax_Wendroff(numberOfBoundaryConditionSet);
-		return laxWendroff;
-		break;
-	case 5:
-		solutionRichtmyer.solveRichtmyer_multi_step(numberOfBoundaryConditionSet);
-		return solutionRichtmyer;
-		break;
-
-
-	default:
-		break;
-	}
-	*/
-	
-	
-
-}
-
-void runSchemes(int numberOfBoundaryConditionSet, vector <int> initialSettings, std::string typeOfExtension)
+void runSchemes(int numberOfBoundaryConditionSet, vector <double> initialSettings, std::string typeOfExtension)
 {
 
 	//Initializing and calculating all schemes 
-	GeneralScheme general(initialSettings[0], initialSettings[1], initialSettings[2]);
-	general.initializeSet(numberOfBoundaryConditionSet);
+	GeneralScheme general(initialSettings[0], initialSettings[1], initialSettings[2], initialSettings[3], initialSettings[4]);
 	general.solveSetAnalytical(numberOfBoundaryConditionSet);
-	ExplicitUpwindScheme upwindScheme(initialSettings[0], initialSettings[1], initialSettings[2]);
+
+	ExplicitUpwindScheme upwindScheme(initialSettings[0], initialSettings[1], initialSettings[2], initialSettings[3], initialSettings[4]);
 	upwindScheme.solveExplicitUpwindScheme(numberOfBoundaryConditionSet);
-	ImplicitUpwindScheme implicitUpwindScheme(initialSettings[0], initialSettings[1], initialSettings[2]);
+
+	ImplicitUpwindScheme implicitUpwindScheme(initialSettings[0], initialSettings[1], initialSettings[2], initialSettings[3], initialSettings[4]);
 	implicitUpwindScheme.solveImplicitUpwindScheme(numberOfBoundaryConditionSet);
-	Lax_Wendroff laxWendroff(initialSettings[0], initialSettings[1], initialSettings[2]);
+
+	Lax_Wendroff laxWendroff(initialSettings[0], initialSettings[1], initialSettings[2], initialSettings[3], initialSettings[4]);
 	laxWendroff.solveLax_Wendroff(numberOfBoundaryConditionSet);
-	Richtmyer_multi_step solutionRichtmyer(initialSettings[0], initialSettings[1], initialSettings[2]);
+
+	Richtmyer_multi_step solutionRichtmyer(initialSettings[0], initialSettings[1], initialSettings[2], initialSettings[3], initialSettings[4]);
 	solutionRichtmyer.solveRichtmyer_multi_step(numberOfBoundaryConditionSet);
 
-
+	
 	//Preparing streams for each scheme
+	/*
+	vector<std::string> schemesNames = {}
+
+	vector<std::shared_ptr<std::ofstream> > streams;
+	for (int i = 0; i < numStreams; i++) {
+		std::shared_ptr<ofstream> out(new std::ofstream);
+		string fileName = "text" + to_string(i) + ".txt";
+		out->open(fileName.c_str());
+		streams.push_back(out);
+	}
+	*/
 	std::ofstream osGeneralScheme;
 	std::ofstream osUpwindScheme;
 	std::ofstream osImplicitScheme;
@@ -163,10 +136,10 @@ int main()
 {
 	
 //Number of boundary condition set. 1 for sign boundary set type ; 2 for exp boundary set type 
-int setNum = 1;
+int setNum = 2;
 
-//Initial setings values are respectively: xMin, xMax, time
-vector <int> initialSettings = { -20, 20, 5};
+//Initial setings values are respectively: xMin, xMax, time, number of spacePoints, CFL value
+vector <double> initialSettings = { -20, 20, 5, 100, 1};
 
 //Extension type of file which storing results of schemes computation. It could be Exel (.xls; .xlsx) file type for instance. 
 std::string typeOfExtension = ".xls";
@@ -192,19 +165,3 @@ return 0;
 //displayVector(results);
 
 //system("pause");
-
-
-/*
-void fulfillMatrix(Matrix& mat)
-{
-for (int i = 0; i < mat.getNumOfRows(); ++i)
-{
-for (int j = 0; j < mat.getNumOfColumns(); ++j)
-{
-mat[i][j] = rand() % 10;
-}
-
-}
-
-}
-*/

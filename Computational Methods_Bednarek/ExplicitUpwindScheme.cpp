@@ -4,7 +4,9 @@
 
 ExplicitUpwindScheme::ExplicitUpwindScheme(double xMin,
 	double xMax,
-	double time) : GeneralScheme::GeneralScheme(xMin, xMax, time),  methodName("ExplicitUpwindScheme")
+	double time,
+	double spacePoints,
+	double CFL) : GeneralScheme::GeneralScheme(xMin, xMax, time, spacePoints, CFL),  methodName("ExplicitUpwindScheme")
 {
 
 }
@@ -22,28 +24,16 @@ void ExplicitUpwindScheme::solveExplicitUpwindScheme(int setNumber)
 		
 			std::cout << "Explicit upwid scheme solution runs and matrix is initialised\n";
 
-			//Variables hold values below 0. Thanks to that negative values could be passed to sign function, it makes loop iteration easier.
-			double actualSpaceValue = xMin;
-			//Variable assinged to dt because time at 0 point is initialised in function initializeSet()
-			double actualTimeValue = dt;
-
 			(*this).initializeSet(setNumber);
-			explicitResutls = Matrix((*this).getMatrix());
+			explicitResutls = Matrix((*this).getMatrix());		
 			
-			
-			for (auto j = 0; j < timePoints-1; ++j)
+			for (auto j = 0; j < numberOfTimePoints-1; ++j)
 			{
 				for (int i = 1; i < spacePoints; ++i)
-				{
-				
-					explicitResutls[i][j+1] = (explicitResutls[i][j] - CFL*(explicitResutls[i][j] - explicitResutls[i - 1][j]));
-					//explicitResutls[i][j + 1] = (1 - CFL) * (upwindIsntance.getMatrix()[i][j]) + (CFL * upwindIsntance.getMatrix()[i - 1][j]);
-					actualSpaceValue += dx;
-					
+				{				
+					explicitResutls[i][j+1] = (explicitResutls[i][j] - CFL*(explicitResutls[i][j] - explicitResutls[i - 1][j]));			
 				}			
-				actualTimeValue += dt;
-				actualSpaceValue = dx;
-				
+					
 			}
 			
 
