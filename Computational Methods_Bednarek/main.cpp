@@ -6,6 +6,7 @@
 #include <string>
 #include <memory>
 #include <map>
+#include <iomanip>
 #include "MathFunctions.h"
 #include "GeneralScheme.h"
 #include "ExplicitUpwindScheme.h"
@@ -59,24 +60,24 @@ void runSchemes(int numberOfBoundaryConditionSet, vector <double> initialSetting
 	initialSettigsSet[4] = { -50, 50, 10, 100, 0.9 };
 	initialSettigsSet[5] = { -50, 50, 10, 200, 0.9 };
 	initialSettigsSet[6] = { -50, 50, 10, 400, 0.9 };
-	
 
 
-		GeneralScheme general = GeneralScheme(initialSettigsSet[0][0], initialSettings[1], initialSettings[2], initialSettings[3], initialSettings[4]);
-		general.solve(numberOfBoundaryConditionSet);
 
-		ExplicitUpwindScheme upwindScheme(initialSettings[0], initialSettings[1], initialSettings[2], initialSettings[3], initialSettings[4]);
-		upwindScheme.solve(numberOfBoundaryConditionSet);
+	GeneralScheme general = GeneralScheme(initialSettigsSet[0][0], initialSettings[1], initialSettings[2], initialSettings[3], initialSettings[4]);
+	general.solve(numberOfBoundaryConditionSet);
 
-		ImplicitUpwindScheme implicitUpwindScheme(initialSettings[0], initialSettings[1], initialSettings[2], initialSettings[3], initialSettings[4]);
-		implicitUpwindScheme.solve(numberOfBoundaryConditionSet);
+	ExplicitUpwindScheme upwindScheme(initialSettings[0], initialSettings[1], initialSettings[2], initialSettings[3], initialSettings[4]);
+	upwindScheme.solve(numberOfBoundaryConditionSet);
 
-		Lax_Wendroff laxWendroff(initialSettings[0], initialSettings[1], initialSettings[2], initialSettings[3], initialSettings[4]);
-		laxWendroff.solve(numberOfBoundaryConditionSet);
+	ImplicitUpwindScheme implicitUpwindScheme(initialSettings[0], initialSettings[1], initialSettings[2], initialSettings[3], initialSettings[4]);
+	implicitUpwindScheme.solve(numberOfBoundaryConditionSet);
 
-		Richtmyer_multi_step solutionRichtmyer(initialSettings[0], initialSettings[1], initialSettings[2], initialSettings[3], initialSettings[4]);
-		solutionRichtmyer.solve(numberOfBoundaryConditionSet);
-	
+	Lax_Wendroff laxWendroff(initialSettings[0], initialSettings[1], initialSettings[2], initialSettings[3], initialSettings[4]);
+	laxWendroff.solve(numberOfBoundaryConditionSet);
+
+	Richtmyer_multi_step solutionRichtmyer(initialSettings[0], initialSettings[1], initialSettings[2], initialSettings[3], initialSettings[4]);
+	solutionRichtmyer.solve(numberOfBoundaryConditionSet);
+
 
 	std::ofstream osGeneralScheme;
 	std::ofstream osUpwindScheme;
@@ -84,32 +85,33 @@ void runSchemes(int numberOfBoundaryConditionSet, vector <double> initialSetting
 	std::ofstream osLaxFile;
 	std::ofstream osRichtmyer;
 	
+
 	//Operation helps to plot charts in programs such as Exel. Setting type of decimal separator depending on current geographical location. In some countries comma in default separator in numbers in others dot
-	osGeneralScheme.imbue(std::locale(std::cout.getloc(), new DecimalSeparator<char>(',')));
+	/*osGeneralScheme.imbue(std::locale(std::cout.getloc(), new DecimalSeparator<char>(',')));
 	osUpwindScheme.imbue(std::locale(std::cout.getloc(), new DecimalSeparator<char>(',')));
 	osImplicitScheme.imbue(std::locale(std::cout.getloc(), new DecimalSeparator<char>(',')));
 	osLaxFile.imbue(std::locale(std::cout.getloc(), new DecimalSeparator<char>(',')));
-	osRichtmyer.imbue(std::locale(std::cout.getloc(), new DecimalSeparator<char>(',')));
-	
+	osRichtmyer.imbue(std::locale(std::cout.getloc(), new DecimalSeparator<char>(',')));*/
+
 
 	//Open/create file with selected extension. It clold be for instance exel files extensions (.xls; .xlsx).
-	osGeneralScheme.open("C:/Users/Domowy/Desktop/Results/" + getInitialBoundaryConditionName(numberOfBoundaryConditionSet) + "_" + general.getName() + "Results_t=" + std::to_string((int) initialSettings[2]) + "_points=" + std::to_string((int)initialSettings[3])  + typeOfExtension);
-	osUpwindScheme.open("C:/Users/Domowy/Desktop/Results/" + getInitialBoundaryConditionName(numberOfBoundaryConditionSet) + "_" + upwindScheme.getName() + "Results_t=" + std::to_string((int)initialSettings[2]) + "_points=" + std::to_string((int)initialSettings[3]) + typeOfExtension);
-	osImplicitScheme.open("C:/Users/Domowy/Desktop/Results/" + getInitialBoundaryConditionName(numberOfBoundaryConditionSet) + "_" + implicitUpwindScheme.getName() + "Results_t=" + std::to_string((int)initialSettings[2]) + "_points=" + std::to_string((int)initialSettings[3]) + typeOfExtension);
-	osLaxFile.open("C:/Users/Domowy/Desktop/Results/" + getInitialBoundaryConditionName(numberOfBoundaryConditionSet) + "_" + laxWendroff.getName() + "Results_t=" + std::to_string((int)initialSettings[2]) + "_points=" + std::to_string((int)initialSettings[3]) + typeOfExtension);
-	osRichtmyer.open("C:/Users/Domowy/Desktop/Results/" + getInitialBoundaryConditionName(numberOfBoundaryConditionSet) + "_" + solutionRichtmyer.getName() + "Results_t=" + std::to_string((int)initialSettings[2]) + "_points=" + std::to_string((int)initialSettings[3]) + typeOfExtension);
-	//Exporting full matrix for each timestep to file
-	//file << general.getMatrix();
+	//osGeneralScheme.open("C:/Users/Domowy/Desktop/Results/" + getInitialBoundaryConditionName(numberOfBoundaryConditionSet) + "_" + general.getName() + "Results_t=" + std::to_string((int)initialSettings[2]) + "_points=" + std::to_string((int)initialSettings[3]) + "_CFL=" + std::to_string(initialSettings[4]) + typeOfExtension);
+	osUpwindScheme.open("C:/Users/Domowy/Desktop/Results/" + getInitialBoundaryConditionName(numberOfBoundaryConditionSet) + "_" + upwindScheme.getName() + "Results_t=" + std::to_string((int)initialSettings[2]) + "_points=" + std::to_string((int)initialSettings[3]) + "_CFL=" + std::to_string(initialSettings[4]) + typeOfExtension);
+	//osImplicitScheme.open("C:/Users/Domowy/Desktop/Results/" + getInitialBoundaryConditionName(numberOfBoundaryConditionSet) + "_" + implicitUpwindScheme.getName() + "Results_t=" + std::to_string((int)initialSettings[2]) + "_points=" + std::to_string((int)initialSettings[3]) + "_CFL=" + std::to_string(initialSettings[4]) + typeOfExtension);
+	//osLaxFile.open("C:/Users/Domowy/Desktop/Results/" + getInitialBoundaryConditionName(numberOfBoundaryConditionSet) + "_" + laxWendroff.getName() + "Results_t=" + std::to_string((int)initialSettings[2]) + "_points=" + std::to_string((int)initialSettings[3]) + "_CFL=" + std::to_string(initialSettings[4]) + typeOfExtension);
+	//osRichtmyer.open("C:/Users/Domowy/Desktop/Results/" + getInitialBoundaryConditionName(numberOfBoundaryConditionSet) + "_" + solutionRichtmyer.getName() + "Results_t=" + std::to_string((int)initialSettings[2]) + "_points=" + std::to_string((int)initialSettings[3]) + "_CFL=" + std::to_string(initialSettings[4]) + typeOfExtension);
+	////Exporting full matrix for each timestep to file
+	////file << general.getMatrix();
 	//file << upwindScheme.getUpwindMatrix();
 	//file << 
-	
+
 
 	//Saving schemes calculating results 
-	osGeneralScheme << general.getMatrix();
-	osUpwindScheme << upwindScheme.getUpwindMatrix();
-	osImplicitScheme << implicitUpwindScheme.getImplicitUpwindMatrix();
-	osLaxFile << laxWendroff.getLax_WendroffdMatrix();
-	osRichtmyer << solutionRichtmyer.getRichtmyer_multi_stepdMatrix();
+	osGeneralScheme  << general.getMatrix();
+	osUpwindScheme  << upwindScheme.getUpwindMatrix();
+	osImplicitScheme  << implicitUpwindScheme.getImplicitUpwindMatrix();
+	osLaxFile  << laxWendroff.getLax_WendroffdMatrix();
+	osRichtmyer  << solutionRichtmyer.getRichtmyer_multi_stepdMatrix();
 
 	//Closing alle opened streams at the end
 	osGeneralScheme.close();
@@ -125,26 +127,37 @@ void runSchemes(int numberOfBoundaryConditionSet, vector <double> initialSetting
 
 int main()
 {
-	
-//Number of boundary condition set. 1 for sign boundary set type ; 2 for exp boundary set type 
-vector<int> setNumber = { 1,2 };
+
+	//Number of boundary condition set. 1 for sign boundary set type ; 2 for exp boundary set type 
+	vector<int> setNumber = { 1};
 
 
-//Initial setings values are respectively: xMin, xMax, time, number of spacePoints, CFL value
-vector <double> initialSettings = { -50, 50, 5, 100, 0.999};
 
-//Extension type of file which storing results of schemes computation. It could be Exel (.xls; .xlsx) file type for instance. 
-std::string typeOfExtension = ".xls";
+	//Initial setings values are respectively: xMin, xMax, time, number of spacePoints, CFL value
 
-//Running program using above settings for all initial boundary types
-for (auto v : setNumber)
-{
-	runSchemes(v, initialSettings, typeOfExtension);
-}
 
-//system("pause");
+	cout << "Actual parameters are: ";
 
-return 0;
+	//Extension type of file which storing results of schemes computation. It could be Exel (.xls; .xlsx) file type for instance. 
+	std::string typeOfExtension = ".xls";
+
+	//Running program using above settings for all initial boundary types
+
+	vector<double> courantNumberSet = { 0.25 ,0.5, 0.75, 0.999, 1.25, 1.5, 1.75, 2 };
+	for (auto v : setNumber)
+	{
+		for ( int i = 0; i < courantNumberSet.size(); ++i )
+		{
+
+			vector <double> initialSettings = { -50, 50, 5, 100, courantNumberSet[i] };
+			runSchemes(v, initialSettings, typeOfExtension);
+		}
+	}
+
+
+	//system("pause");
+
+	return 0;
 }
 
 
