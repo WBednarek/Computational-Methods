@@ -63,19 +63,19 @@ void runSchemes(int numberOfBoundaryConditionSet, vector <double> initialSetting
 
 	//Initializing and calculating all schemes 
 	GeneralScheme general(initialSettings[0], initialSettings[1], initialSettings[2], initialSettings[3], initialSettings[4]);
-	general.solveSetAnalytical(numberOfBoundaryConditionSet);
+	general.solve(numberOfBoundaryConditionSet);
 
 	ExplicitUpwindScheme upwindScheme(initialSettings[0], initialSettings[1], initialSettings[2], initialSettings[3], initialSettings[4]);
-	upwindScheme.solveExplicitUpwindScheme(numberOfBoundaryConditionSet);
+	upwindScheme.solve(numberOfBoundaryConditionSet);
 
 	ImplicitUpwindScheme implicitUpwindScheme(initialSettings[0], initialSettings[1], initialSettings[2], initialSettings[3], initialSettings[4]);
-	implicitUpwindScheme.solveImplicitUpwindScheme(numberOfBoundaryConditionSet);
+	implicitUpwindScheme.solve(numberOfBoundaryConditionSet);
 
 	Lax_Wendroff laxWendroff(initialSettings[0], initialSettings[1], initialSettings[2], initialSettings[3], initialSettings[4]);
-	laxWendroff.solveLax_Wendroff(numberOfBoundaryConditionSet);
+	laxWendroff.solve(numberOfBoundaryConditionSet);
 
 	Richtmyer_multi_step solutionRichtmyer(initialSettings[0], initialSettings[1], initialSettings[2], initialSettings[3], initialSettings[4]);
-	solutionRichtmyer.solveRichtmyer_multi_step(numberOfBoundaryConditionSet);
+	solutionRichtmyer.solve(numberOfBoundaryConditionSet);
 
 	
 	//Preparing streams for each scheme

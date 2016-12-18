@@ -14,7 +14,7 @@ public:
 		double spacePoints,
 		double CFL);
 	virtual ~ImplicitUpwindScheme();
-	void solveImplicitUpwindScheme(int setNumber);
+	virtual void solve(int setNumber) override;
 	Matrix getImplicitUpwindMatrix();
 };
 

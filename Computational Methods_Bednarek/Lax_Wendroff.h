@@ -19,7 +19,7 @@ public:
 	virtual ~Lax_Wendroff();
 
 
-	void solveLax_Wendroff(int setNumber);
+	virtual void solve(int setNumber) override;
 	//double solutionFunctionExplicitScheme(int numberOfSet, Matrix toUpwindSchemeCalculations);
 	Matrix Lax_Wendroff::getLax_WendroffdMatrix();
 

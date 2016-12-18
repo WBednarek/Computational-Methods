@@ -42,7 +42,7 @@ public:
 	double calculateDxValue();
 	double getDx();
 	void initializeSet(int setNumber);
-	void solveSetAnalytical(int setNumber);
+	virtual void solve(int setNumber);
 	Matrix GeneralScheme::getMatrix();
 	double GeneralScheme::initializationFunction(int numberOfSet, double functionValue);
 	double GeneralScheme::solutionFunctionAnalytical(int numberOfSet, double actualSpace, double actualTime);

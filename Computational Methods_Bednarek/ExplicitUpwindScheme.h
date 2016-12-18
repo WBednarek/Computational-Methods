@@ -25,7 +25,7 @@ public:
 	~ExplicitUpwindScheme();
 
 
-	void solveExplicitUpwindScheme(int setNumber);
+	virtual void solve(int setNumber) override;
 	//double solutionFunctionExplicitScheme(int numberOfSet, Matrix toUpwindSchemeCalculations);
 	Matrix ExplicitUpwindScheme::getUpwindMatrix();
 

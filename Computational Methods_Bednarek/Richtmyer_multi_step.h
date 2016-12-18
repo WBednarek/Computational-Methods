@@ -19,7 +19,7 @@ public:
 	virtual ~Richtmyer_multi_step();
 
 
-	void solveRichtmyer_multi_step(int setNumber);
+	virtual void solve(int setNumber) override;
 	//double solutionFunctionExplicitScheme(int numberOfSet, Matrix toUpwindSchemeCalculations);
 	Matrix Richtmyer_multi_step::getRichtmyer_multi_stepdMatrix();
 };

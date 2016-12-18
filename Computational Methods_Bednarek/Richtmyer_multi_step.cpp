@@ -19,7 +19,7 @@ Richtmyer_multi_step::~Richtmyer_multi_step()
 {
 }
 
-void Richtmyer_multi_step::solveRichtmyer_multi_step(int setNumber)
+void Richtmyer_multi_step::solve(int setNumber)
 {
 	try
 	{

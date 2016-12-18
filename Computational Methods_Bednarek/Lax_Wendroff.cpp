@@ -19,7 +19,7 @@ Lax_Wendroff::~Lax_Wendroff()
 {
 }
 
-void Lax_Wendroff::solveLax_Wendroff(int setNumber)
+void Lax_Wendroff::solve(int setNumber)
 {
 	try
 	{

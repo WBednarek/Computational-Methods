@@ -134,7 +134,7 @@ void GeneralScheme::initializeSet(int setNumber)
 
 
 
-void GeneralScheme::solveSetAnalytical(int setNumber)
+void GeneralScheme::solve(int setNumber)
 {
 	(*this).initializeSet(setNumber);
 	try

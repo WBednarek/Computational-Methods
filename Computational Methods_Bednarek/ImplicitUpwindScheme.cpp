@@ -19,7 +19,7 @@ ImplicitUpwindScheme::~ImplicitUpwindScheme()
 {
 }
 
-void ImplicitUpwindScheme::solveImplicitUpwindScheme(int setNumber)
+void ImplicitUpwindScheme::solve(int setNumber)
 {
 	try
 	{

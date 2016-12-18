@@ -17,7 +17,7 @@ ExplicitUpwindScheme::~ExplicitUpwindScheme()
 }
 
 
-void ExplicitUpwindScheme::solveExplicitUpwindScheme(int setNumber)
+void ExplicitUpwindScheme::solve(int setNumber)
 {
 	try
 	{
