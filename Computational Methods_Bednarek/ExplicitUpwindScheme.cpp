@@ -35,6 +35,7 @@ void ExplicitUpwindScheme::solve(int setNumber)
 				}			
 					
 			}
+			GeneralScheme::solve(setNumber);
 			calculateError((*this).explicitResutls);
 
 	}

@@ -136,10 +136,10 @@ int main()
 {
 	
 //Number of boundary condition set. 1 for sign boundary set type ; 2 for exp boundary set type 
-int setNum = 2;
+int setNum = 1;
 
 //Initial setings values are respectively: xMin, xMax, time, number of spacePoints, CFL value
-vector <double> initialSettings = { -20, 20, 5, 100, 1};
+vector <double> initialSettings = { -50, 50, 5, 400, 0.9};
 
 //Extension type of file which storing results of schemes computation. It could be Exel (.xls; .xlsx) file type for instance. 
 std::string typeOfExtension = ".xls";

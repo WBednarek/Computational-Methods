@@ -83,25 +83,34 @@ double GeneralScheme::solutionFunctionAnalytical(int numberOfSet, double actualS
 void GeneralScheme::calculateError(Matrix& toCalculateError)
 {
 	errorVector.resize(toCalculateError.getNumOfRows());
-		for (auto i = 0; i < toCalculateError.getNumOfRows(); ++i) 
+		for (auto i = 0; i < numberOfSpacePoints; ++i) 
 		{
-			errorVector[i] = toCalculateError[i][numberOfTimePoints - 1] - (*this).matrixOfResults[i][numberOfTimePoints - 1];
+			errorVector[i] = toCalculateError[i][numberOfTimePoints-1] - (*this).matrixOfResults[i][numberOfTimePoints-1];
 		}
 
 		(*this).normInfiniteValue = std::max_element(errorVector.begin(), errorVector.end(), MathFunctions::compareTwoAbsElements);
 		normInfiniteValue1 = std::distance(errorVector.begin(), normInfiniteValue);
+		double normInf = errorVector.at(normInfiniteValue1);
 
 		for (auto i = 0; i < errorVector.size(); ++i)
 		{
 			(*this).normOneValue += std::abs(errorVector[i]);
 			(*this).normTwoValue += std::pow(std::abs(errorVector[i]), 2);
 		}
-		std::vector<double> norms = { normInfiniteValue1, normOneValue, normTwoValue };
-		toCalculateError.resizeMat(numberOfSpacePoints + norms.size() + 1, numberOfTimePoints);
+		
+
+
+		normTwoValue = std::sqrt(normTwoValue);
+		normOneValue = normOneValue / numberOfSpacePoints;
+		normTwoValue = normTwoValue / numberOfSpacePoints;
+
+		std::vector<double> norms = { normInf, normOneValue, normTwoValue };
+
+		toCalculateError.resizeMat(numberOfSpacePoints, numberOfTimePoints+1);
 		for (int i = 0; i < norms.size(); ++i)
 		{
 			//Adding norms results to last matrix colunm
-			toCalculateError[i + numberOfSpacePoints+1][numberOfTimePoints - 1] = norms.at(i);
+			toCalculateError[i][numberOfTimePoints ] = norms.at(i);
 		}
 	
 
