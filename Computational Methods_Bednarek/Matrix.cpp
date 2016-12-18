@@ -123,3 +123,16 @@ Matrix& Matrix::operator=(const Matrix& m)
 }
 
 
+void Matrix::resizeMat(int numOfRows, int numOfColumns)
+{
+
+
+	(*this).resize(numOfRows);
+
+	for (int i = 0; i < numOfRows; ++i)
+	{
+		(*this)[i].resize(numOfColumns);
+	}
+
+}
+

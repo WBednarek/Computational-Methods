@@ -9,8 +9,8 @@ ImplicitUpwindScheme::ImplicitUpwindScheme()
 ImplicitUpwindScheme::ImplicitUpwindScheme(double xMin,
 	double xMax,
 	double time,
-	double spacePoints,
-	double CFL) : GeneralScheme::GeneralScheme(xMin, xMax, time, spacePoints, CFL), methodName("ImplicitUpwindScheme")
+	double numberOfSpacePoints,
+	double CFL) : GeneralScheme::GeneralScheme(xMin, xMax, time, numberOfSpacePoints, CFL), methodName("ImplicitUpwindScheme")
 {
 }
 
@@ -33,7 +33,7 @@ void ImplicitUpwindScheme::solve(int setNumber)
 
 		for (auto j = 0; j < numberOfTimePoints - 1; ++j)
 		{
-			for (int i = 1; i < spacePoints; ++i)
+			for (int i = 1; i < numberOfSpacePoints; ++i)
 			{
 
 				implicitResults[i][j + 1] = (-1.0 * CFL) * (implicitResults[i][j + 1] - implicitResults[i - 1][j + 1]) + implicitResults[i ][j];

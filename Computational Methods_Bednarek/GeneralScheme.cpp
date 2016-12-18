@@ -1,6 +1,5 @@
 #include "GeneralScheme.h"
-#include <exception>
-#include <iostream>
+
 
 
 
@@ -18,15 +17,15 @@ GeneralScheme::~GeneralScheme()
 }
 
 
-GeneralScheme::GeneralScheme(double xMin, double xMax, double time, double spacePoints, double CFL) 
-	:xMin(xMin), xMax(xMax), time(time), spacePoints(spacePoints), CFL(CFL), isSetInitialised(false)
+GeneralScheme::GeneralScheme(double xMin, double xMax, double time, double numberOfSpacePoints, double CFL) 
+	:xMin(xMin), xMax(xMax), time(time), numberOfSpacePoints(numberOfSpacePoints), CFL(CFL), isSetInitialised(false), isAnaliticalSolutionSolved(false)
 {
 	
 	(*this).dt = (*this).calculateDtValue();
 	(*this).dx = (*this).calculateDxValue();
     (*this).numberOfTimePoints = std::ceil(time / (((*this).CFL * (*this).dx) / u));
 
-	matrixOfResults = Matrix(spacePoints, numberOfTimePoints);
+	matrixOfResults = Matrix(numberOfSpacePoints, numberOfTimePoints);
 	(*this).calculateDtValue();
 
 }
@@ -39,7 +38,7 @@ double GeneralScheme::calculateDtValue()
 
 double GeneralScheme::calculateDxValue()
 {
-	return (*this).dx = (std::abs((*this).xMin) + std::abs((*this).xMax)) / spacePoints;
+	return (*this).dx = (std::abs((*this).xMin) + std::abs((*this).xMax)) / numberOfSpacePoints;
 }
 
 
@@ -74,8 +73,48 @@ double GeneralScheme::solutionFunctionAnalytical(int numberOfSet, double actualS
 	case 2:
 		return 0.5 * std::exp((-1.0)*std::pow(actualSpaceValue - 1.75 * actualTimeValue, 2));
 		break;
+	default:
+		break;
 	}
 }
+
+
+//Error and norms calculation
+void GeneralScheme::calculateError(Matrix& toCalculateError)
+{
+	errorVector.resize(toCalculateError.getNumOfRows());
+		for (auto i = 0; i < toCalculateError.getNumOfRows(); ++i) 
+		{
+			errorVector[i] = toCalculateError[i][numberOfTimePoints - 1] - (*this).matrixOfResults[i][numberOfTimePoints - 1];
+		}
+
+		(*this).normInfiniteValue = std::max_element(errorVector.begin(), errorVector.end(), MathFunctions::compareTwoAbsElements);
+		normInfiniteValue1 = std::distance(errorVector.begin(), normInfiniteValue);
+
+		for (auto i = 0; i < errorVector.size(); ++i)
+		{
+			(*this).normOneValue += std::abs(errorVector[i]);
+			(*this).normTwoValue += std::pow(std::abs(errorVector[i]), 2);
+		}
+		std::vector<double> norms = { normInfiniteValue1, normOneValue, normTwoValue };
+		toCalculateError.resizeMat(numberOfSpacePoints + norms.size() + 1, numberOfTimePoints);
+		for (int i = 0; i < norms.size(); ++i)
+		{
+			//Adding norms results to last matrix colunm
+			toCalculateError[i + numberOfSpacePoints+1][numberOfTimePoints - 1] = norms.at(i);
+		}
+	
+
+}
+/*
+void GeneralScheme::getNorms(Matrix  toCalculateError)
+{
+	(*this).calculateError(toCalculateError);
+	
+	
+}
+*/
+
 
 void GeneralScheme::put_timeValues()
 {
@@ -97,7 +136,7 @@ void GeneralScheme::initializeSet(int setNumber)
 		{
 			//put_timeValues();
 			double actualValue = xMin;
-			for (int i = 0; i < spacePoints ; ++i)
+			for (int i = 0; i < numberOfSpacePoints ; ++i)
 			{
 				matrixOfResults[i][0] = (1.0 / 2.0) * (*this).initializationFunction(setNumber, actualValue);
 				actualValue += (*this).dx;
@@ -109,7 +148,7 @@ void GeneralScheme::initializeSet(int setNumber)
 				for (int i = 0; i < numberOfTimePoints ; ++i)
 				{
 					matrixOfResults[0][i] = 0;
-					matrixOfResults[spacePoints - 1][i] = 1;
+					matrixOfResults[numberOfSpacePoints - 1][i] = 1;
 				}
 			}
 			else
@@ -117,7 +156,7 @@ void GeneralScheme::initializeSet(int setNumber)
 				for (int i = 0; i < numberOfTimePoints ; ++i)
 				{
 					matrixOfResults[0][i] = 0;
-					matrixOfResults[spacePoints - 1][i] = 0;
+					matrixOfResults[numberOfSpacePoints - 1][i] = 0;
 				}
 			}
 
@@ -133,10 +172,10 @@ void GeneralScheme::initializeSet(int setNumber)
 }
 
 
-
-void GeneralScheme::solve(int setNumber)
+//Analytical scheme solving
+void GeneralScheme::solve(int numberOfBoundaryConditionSet)
 {
-	(*this).initializeSet(setNumber);
+	(*this).initializeSet(numberOfBoundaryConditionSet);
 	try
 	{
 		if ((*this).isSetInitialised == true)
@@ -147,19 +186,21 @@ void GeneralScheme::solve(int setNumber)
 			double actualSpaceValue = xMin;
 			//Variable assinged to dt because time at 0 point is initialised in function initializeSet()
 			double actualTimeValue = dt;
-			for (int i = 1; i < spacePoints; ++i)
+			for (int i = 1; i < numberOfSpacePoints; ++i)
 			{
 				for (auto j = 1; j < numberOfTimePoints; ++j)
 				{
-					matrixOfResults[i][j] = solutionFunctionAnalytical(setNumber, actualSpaceValue, actualTimeValue);
+					matrixOfResults[i][j] = solutionFunctionAnalytical(numberOfBoundaryConditionSet, actualSpaceValue, actualTimeValue);
 					actualTimeValue += dt;				
 
 				}
 				actualTimeValue = dt;
 				actualSpaceValue += dx;
 			}
-
+			
+			isAnaliticalSolutionSolved = true;
 		}
+		
 		else
 		{
 			std::cout << "Matrix is not initialised\n";

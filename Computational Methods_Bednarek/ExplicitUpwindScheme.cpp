@@ -5,8 +5,8 @@
 ExplicitUpwindScheme::ExplicitUpwindScheme(double xMin,
 	double xMax,
 	double time,
-	double spacePoints,
-	double CFL) : GeneralScheme::GeneralScheme(xMin, xMax, time, spacePoints, CFL),  methodName("ExplicitUpwindScheme")
+	double numberOfSpacePoints,
+	double CFL) : GeneralScheme::GeneralScheme(xMin, xMax, time, numberOfSpacePoints, CFL),  methodName("ExplicitUpwindScheme")
 {
 
 }
@@ -29,13 +29,13 @@ void ExplicitUpwindScheme::solve(int setNumber)
 			
 			for (auto j = 0; j < numberOfTimePoints-1; ++j)
 			{
-				for (int i = 1; i < spacePoints; ++i)
+				for (int i = 1; i < numberOfSpacePoints; ++i)
 				{				
 					explicitResutls[i][j+1] = (explicitResutls[i][j] - CFL*(explicitResutls[i][j] - explicitResutls[i - 1][j]));			
 				}			
 					
 			}
-			
+			calculateError((*this).explicitResutls);
 
 	}
 

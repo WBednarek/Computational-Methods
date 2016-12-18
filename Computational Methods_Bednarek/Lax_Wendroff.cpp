@@ -9,8 +9,8 @@ Lax_Wendroff::Lax_Wendroff()
 Lax_Wendroff::Lax_Wendroff(double xMin,
 	double xMax,
 	double time,
-	double spacePoints,
-	double CFL) : GeneralScheme::GeneralScheme(xMin, xMax, time, spacePoints, CFL), methodName("Lax_Wendroff")
+	double numberOfSpacePoints,
+	double CFL) : GeneralScheme::GeneralScheme(xMin, xMax, time, numberOfSpacePoints, CFL), methodName("Lax_Wendroff")
 {
 }
 
@@ -37,7 +37,7 @@ void Lax_Wendroff::solve(int setNumber)
 
 		for (auto j = 0; j < numberOfTimePoints - 1; ++j)
 		{
-			for (int i = 1; i < spacePoints - 1; ++i)
+			for (int i = 1; i < numberOfSpacePoints - 1; ++i)
 			{
 
 				Lax_WendroffResutls[i][j + 1] = T1 * Lax_WendroffResutls[i - 1][j] + T2 * Lax_WendroffResutls[i][j] + T3 * Lax_WendroffResutls[i + 1][j];

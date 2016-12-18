@@ -1,4 +1,5 @@
 #pragma once
+#include <cmath>
 class MathFunctions
 {
 public:
@@ -7,6 +8,7 @@ public:
 
 
 	static int sign(double x);
+	static bool compareTwoAbsElements(double first, double second);
 
 };
 

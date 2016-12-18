@@ -31,4 +31,6 @@ public:
 		const Matrix& m);
 	Matrix& Matrix::operator=(const Matrix& m);
 
+	void resizeMat(int numOfRows, int numOfColumns);
+
 };

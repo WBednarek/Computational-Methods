@@ -38,3 +38,8 @@ Fucntion gives an output of sign function
 	}
 
 }
+
+ bool MathFunctions::compareTwoAbsElements(double first, double second)
+ {
+	 return (std::abs(first) < std::abs(second));
+ }

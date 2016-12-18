@@ -13,14 +13,13 @@ public:
 	Richtmyer_multi_step(double xMin,
 		double xMax,
 		double time,
-		double spacePoints,
+		double numberOfSpacePoints,
 		double CFL);
 
 	virtual ~Richtmyer_multi_step();
 
 
 	virtual void solve(int setNumber) override;
-	//double solutionFunctionExplicitScheme(int numberOfSet, Matrix toUpwindSchemeCalculations);
 	Matrix Richtmyer_multi_step::getRichtmyer_multi_stepdMatrix();
 };
 
