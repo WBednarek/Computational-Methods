@@ -18,8 +18,10 @@ public:
 
 	virtual ~Richtmyer_multi_step();
 
-
+	//Virtual solve method as in the rest classes. Overide is an "tip" for compiler in cases then method could be by an accident not overrided but created as new one
 	virtual void solve(int setNumber) override;
 	Matrix Richtmyer_multi_step::getRichtmyer_multi_stepdMatrix();
+	virtual std::string Richtmyer_multi_step::getName() override;
+
 };
 

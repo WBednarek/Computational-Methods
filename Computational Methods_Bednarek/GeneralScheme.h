@@ -31,19 +31,13 @@ protected:
 	bool isAnaliticalSolutionSolved;
 	std::vector<double> errorVector;
 	
-	std::vector<double>::iterator normInfiniteValue;
-	double normInfiniteValue1;
+	double normInfiniteValue;
 	double normOneValue;
 	double normTwoValue;
-
-
-
-
+	std::string name;
 
 public:
 	GeneralScheme();
-
-	
 
 	GeneralScheme(
 		double xMin, 
@@ -52,19 +46,24 @@ public:
 		double numberOfSpacePoints, 
 		double CFL);
 
-	
 	~GeneralScheme();
+
+
 	double calculateDtValue();
 	double calculateDxValue();
 	double getDx();
 	void initializeSet(int setNumber);
-	virtual void solve(int setNumber);
-	Matrix GeneralScheme::getMatrix();
+	
+	
 	double GeneralScheme::initializationFunction(int numberOfSet, double functionValue);
 	double GeneralScheme::solutionFunctionAnalytical(int numberOfSet, double actualSpace, double actualTime);
-	void GeneralScheme::calculateError(Matrix & toCalculateError);
-
+	Matrix GeneralScheme::getMatrix();
+	void GeneralScheme::calculateNorms(Matrix & toCalculateError);
+	//void GeneralScheme::addSpaceDomainNumbersToResult();
 	void put_timeValues();
+	
+	virtual  std::string GeneralScheme::getName();
+	virtual void solve(int setNumber);
 
 	
 

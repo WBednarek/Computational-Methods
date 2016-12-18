@@ -22,6 +22,7 @@ public:
 	virtual void solve(int setNumber) override;
 	//double solutionFunctionExplicitScheme(int numberOfSet, Matrix toUpwindSchemeCalculations);
 	Matrix Lax_Wendroff::getLax_WendroffdMatrix();
+	virtual std::string Lax_Wendroff::getName() override;
 
 };
 

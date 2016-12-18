@@ -70,3 +70,8 @@ Matrix Richtmyer_multi_step::getRichtmyer_multi_stepdMatrix()
 {
 	return RichtmyerResutls;
 }
+
+std::string Richtmyer_multi_step::getName()
+{
+	return methodName;
+}

@@ -44,6 +44,8 @@ void Lax_Wendroff::solve(int setNumber)
 			}
 
 		}
+		GeneralScheme::solve(setNumber);
+		calculateNorms((*this).Lax_WendroffResutls);
 
 	}
 
@@ -56,4 +58,9 @@ void Lax_Wendroff::solve(int setNumber)
 Matrix Lax_Wendroff::getLax_WendroffdMatrix()
 {
 	return Lax_WendroffResutls;
+}
+
+std::string Lax_Wendroff::getName()
+{
+	return methodName;
 }

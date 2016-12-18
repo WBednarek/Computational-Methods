@@ -16,5 +16,6 @@ public:
 	virtual ~ImplicitUpwindScheme();
 	virtual void solve(int setNumber) override;
 	Matrix getImplicitUpwindMatrix();
+	virtual std::string ImplicitUpwindScheme::getName() override;
 };
 

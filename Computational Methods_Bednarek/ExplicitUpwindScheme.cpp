@@ -36,7 +36,7 @@ void ExplicitUpwindScheme::solve(int setNumber)
 					
 			}
 			GeneralScheme::solve(setNumber);
-			calculateError((*this).explicitResutls);
+			calculateNorms((*this).explicitResutls);
 
 	}
 
@@ -49,6 +49,11 @@ void ExplicitUpwindScheme::solve(int setNumber)
 Matrix ExplicitUpwindScheme::getUpwindMatrix()
 {
 	return explicitResutls;
+}
+
+std::string ExplicitUpwindScheme::getName()
+{
+	return methodName;
 }
 
 

@@ -54,3 +54,8 @@ Matrix ImplicitUpwindScheme::getImplicitUpwindMatrix()
 {
 	return implicitResults;
 }
+
+std::string ImplicitUpwindScheme::getName()
+{
+	return methodName;
+}

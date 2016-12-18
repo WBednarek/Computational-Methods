@@ -15,6 +15,7 @@ class ExplicitUpwindScheme : public GeneralScheme
 
 	std::string methodName;
 	Matrix explicitResutls;
+
 public:
 	
 	ExplicitUpwindScheme(double xMin,
@@ -28,6 +29,7 @@ public:
 	virtual void solve(int setNumber) override;
 	//double solutionFunctionExplicitScheme(int numberOfSet, Matrix toUpwindSchemeCalculations);
 	Matrix ExplicitUpwindScheme::getUpwindMatrix();
+	virtual std::string ExplicitUpwindScheme::getName() override;
 
 };
 
