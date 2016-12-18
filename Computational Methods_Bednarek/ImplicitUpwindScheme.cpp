@@ -41,6 +41,8 @@ void ImplicitUpwindScheme::solve(int setNumber)
 			}
 			
 		}
+		GeneralScheme::solve(setNumber);
+		calculateNorms((*this).implicitResults);
 
 	}
 

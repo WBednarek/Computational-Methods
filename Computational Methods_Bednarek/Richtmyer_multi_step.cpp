@@ -56,6 +56,8 @@ void Richtmyer_multi_step::solve(int setNumber)
 			}
 
 		}
+		GeneralScheme::solve(setNumber);
+		calculateNorms((*this).RichtmyerResutls);
 
 	}
 

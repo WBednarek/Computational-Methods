@@ -150,6 +150,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Display.cpp" />
     <ClCompile Include="ExplicitUpwindScheme.cpp" />
     <ClCompile Include="GeneralScheme.cpp" />
     <ClCompile Include="ImplicitUpwindScheme.cpp" />
@@ -160,6 +161,7 @@
     <ClCompile Include="Richtmyer_multi_step.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Display.h" />
     <ClInclude Include="ExplicitUpwindScheme.h" />
     <ClInclude Include="GeneralScheme.h" />
     <ClInclude Include="ImplicitUpwindScheme.h" />
