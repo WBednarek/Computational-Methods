@@ -95,7 +95,7 @@ void runSchemes(int numberOfBoundaryConditionSet, vector <double> initialSetting
 
 
 	//Open/create file with selected extension. It clold be for instance exel files extensions (.xls; .xlsx).
-	//osGeneralScheme.open("C:/Users/Domowy/Desktop/Results/" + getInitialBoundaryConditionName(numberOfBoundaryConditionSet) + "_" + general.getName() + "Results_t=" + std::to_string((int)initialSettings[2]) + "_points=" + std::to_string((int)initialSettings[3]) + "_CFL=" + std::to_string(initialSettings[4]) + typeOfExtension);
+	osGeneralScheme.open("C:/Users/Domowy/Desktop/Results/" + getInitialBoundaryConditionName(numberOfBoundaryConditionSet) + "_" + general.getName() + "Results_t=" + std::to_string((int)initialSettings[2]) + "_points=" + std::to_string((int)initialSettings[3]) + "_CFL=" + std::to_string(initialSettings[4]) + typeOfExtension);
 	osUpwindScheme.open("C:/Users/Domowy/Desktop/Results/" + getInitialBoundaryConditionName(numberOfBoundaryConditionSet) + "_" + upwindScheme.getName() + "Results_t=" + std::to_string((int)initialSettings[2]) + "_points=" + std::to_string((int)initialSettings[3]) + "_CFL=" + std::to_string(initialSettings[4]) + typeOfExtension);
 	//osImplicitScheme.open("C:/Users/Domowy/Desktop/Results/" + getInitialBoundaryConditionName(numberOfBoundaryConditionSet) + "_" + implicitUpwindScheme.getName() + "Results_t=" + std::to_string((int)initialSettings[2]) + "_points=" + std::to_string((int)initialSettings[3]) + "_CFL=" + std::to_string(initialSettings[4]) + typeOfExtension);
 	//osLaxFile.open("C:/Users/Domowy/Desktop/Results/" + getInitialBoundaryConditionName(numberOfBoundaryConditionSet) + "_" + laxWendroff.getName() + "Results_t=" + std::to_string((int)initialSettings[2]) + "_points=" + std::to_string((int)initialSettings[3]) + "_CFL=" + std::to_string(initialSettings[4]) + typeOfExtension);
@@ -129,7 +129,7 @@ int main()
 {
 
 	//Number of boundary condition set. 1 for sign boundary set type ; 2 for exp boundary set type 
-	vector<int> setNumber = { 1};
+	vector<int> setNumber = {2};
 
 
 
@@ -143,16 +143,16 @@ int main()
 
 	//Running program using above settings for all initial boundary types
 
-	vector<double> courantNumberSet = { 0.25 ,0.5, 0.75, 0.999, 1.25, 1.5, 1.75, 2 };
+	vector<double> courantNumberSet = { 0.25 ,0.5, 0.75, 0.999};
 	for (auto v : setNumber)
 	{
-		vector <double> initialSettings = { -50, 50, 10, 400, 0.999 };
+		vector <double> initialSettings = { -50, 50, 5, 100, courantNumberSet[3] };
 		runSchemes(v, initialSettings, typeOfExtension);
-		/*for ( int i = 0; i < courantNumberSet.size(); ++i )
+		for ( int i = 0; i < courantNumberSet.size(); ++i )
 		{
-
+		
 			
-		}*/
+		}
 	}
 
 

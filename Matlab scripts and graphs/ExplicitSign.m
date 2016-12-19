@@ -1827,7 +1827,7 @@ explititoints400 = [
 % figure
 % waterfall(TimeAllTo10_2);
 
-%% Different nimer of points
+%% Different number of points
 
  p = plot(x,explicit ); 
  hold on
