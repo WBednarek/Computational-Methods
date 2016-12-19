@@ -47,23 +47,17 @@ private:
 	CharT m_Separator;
 };
 
+
+
+
+
 void runSchemes(int numberOfBoundaryConditionSet, vector <double> initialSettings, std::string typeOfExtension)
 {
 
-	//Initializing and calculating all schemes 
-
-	std::map<int, std::vector<double> > initialSettigsSet;
-	initialSettigsSet[0] = { -50, 50, 5, 100, 0.999 };
-	initialSettigsSet[1] = { -50, 50, 5, 100, 0.9 };
-	initialSettigsSet[2] = { -50, 50, 5, 200, 0.9 };
-	initialSettigsSet[3] = { -50, 50, 5, 400, 0.9 };
-	initialSettigsSet[4] = { -50, 50, 10, 100, 0.9 };
-	initialSettigsSet[5] = { -50, 50, 10, 200, 0.9 };
-	initialSettigsSet[6] = { -50, 50, 10, 400, 0.9 };
 
 
-	/*
-	GeneralScheme general = GeneralScheme(initialSettigsSet[0][0], initialSettings[1], initialSettings[2], initialSettings[3], initialSettings[4]);
+	
+	GeneralScheme general = GeneralScheme(initialSettings[0], initialSettings[1], initialSettings[2], initialSettings[3], initialSettings[4]);
 	general.solve(numberOfBoundaryConditionSet);
 	
 	ExplicitUpwindScheme upwindScheme(initialSettings[0], initialSettings[1], initialSettings[2], initialSettings[3], initialSettings[4]);
@@ -74,51 +68,46 @@ void runSchemes(int numberOfBoundaryConditionSet, vector <double> initialSetting
 	
 	Lax_Wendroff laxWendroff(initialSettings[0], initialSettings[1], initialSettings[2], initialSettings[3], initialSettings[4]);
 	laxWendroff.solve(numberOfBoundaryConditionSet);
-	*/
+	
 	Richtmyer_multi_step solutionRichtmyer(initialSettings[0], initialSettings[1], initialSettings[2], initialSettings[3], initialSettings[4]);
 	solutionRichtmyer.solve(numberOfBoundaryConditionSet);
 
 
-	/*std::ofstream osGeneralScheme;
+	std::ofstream osGeneralScheme;
 	std::ofstream osUpwindScheme;
 	std::ofstream osImplicitScheme;
-	std::ofstream osLaxFile;*/
+	std::ofstream osLaxFile;
 	std::ofstream osRichtmyer;
 	
 
 	//Operation helps to plot charts in programs such as Exel. Setting type of decimal separator depending on current geographical location. In some countries comma in default separator in numbers in others dot
-	//osGeneralScheme.imbue(std::locale(std::cout.getloc(), new DecimalSeparator<char>(',')));
-	//osUpwindScheme.imbue(std::locale(std::cout.getloc(), new DecimalSeparator<char>(',')));
-	//osImplicitScheme.imbue(std::locale(std::cout.getloc(), new DecimalSeparator<char>(',')));
-	//osLaxFile.imbue(std::locale(std::cout.getloc(), new DecimalSeparator<char>(',')));
-	//osRichtmyer.imbue(std::locale(std::cout.getloc(), new DecimalSeparator<char>(',')));
+	osGeneralScheme.imbue(std::locale(std::cout.getloc(), new DecimalSeparator<char>(',')));
+	osUpwindScheme.imbue(std::locale(std::cout.getloc(), new DecimalSeparator<char>(',')));
+	osImplicitScheme.imbue(std::locale(std::cout.getloc(), new DecimalSeparator<char>(',')));
+	osLaxFile.imbue(std::locale(std::cout.getloc(), new DecimalSeparator<char>(',')));
+	osRichtmyer.imbue(std::locale(std::cout.getloc(), new DecimalSeparator<char>(',')));
 
 
 	//Open/create file with selected extension. It clold be for instance exel files extensions (.xls; .xlsx).
-	//osGeneralScheme.open("C:/Users/Domowy/Desktop/Results/" + getInitialBoundaryConditionName(numberOfBoundaryConditionSet) + "_" + general.getName() + "Results_t=" + std::to_string((int)initialSettings[2]) + "_points=" + std::to_string((int)initialSettings[3]) + "_CFL=" + std::to_string(initialSettings[4]) + typeOfExtension);
-	//osUpwindScheme.open("C:/Users/Domowy/Desktop/Results/" + getInitialBoundaryConditionName(numberOfBoundaryConditionSet) + "_" + upwindScheme.getName() + "Results_t=" + std::to_string((int)initialSettings[2]) + "_points=" + std::to_string((int)initialSettings[3]) + "_CFL=" + std::to_string(initialSettings[4]) + typeOfExtension);
-	//osImplicitScheme.open("C:/Users/Domowy/Desktop/Results/" + getInitialBoundaryConditionName(numberOfBoundaryConditionSet) + "_" + implicitUpwindScheme.getName() + "Results_t=" + std::to_string((int)initialSettings[2]) + "_points=" + std::to_string((int)initialSettings[3]) + "_CFL=" + std::to_string(initialSettings[4]) + typeOfExtension);
-	//osLaxFile.open("C:/Users/Domowy/Desktop/Results/" + getInitialBoundaryConditionName(numberOfBoundaryConditionSet) + "_" + laxWendroff.getName() + "Results_t=" + std::to_string((int)initialSettings[2]) + "_points=" + std::to_string((int)initialSettings[3]) + "_CFL=" + std::to_string(initialSettings[4]) + typeOfExtension);
+	osGeneralScheme.open("C:/Users/Domowy/Desktop/Results/" + getInitialBoundaryConditionName(numberOfBoundaryConditionSet) + "_" + general.getName() + "Results_t=" + std::to_string((int)initialSettings[2]) + "_points=" + std::to_string((int)initialSettings[3]) + "_CFL=" + std::to_string(initialSettings[4]) + typeOfExtension);
+	osUpwindScheme.open("C:/Users/Domowy/Desktop/Results/" + getInitialBoundaryConditionName(numberOfBoundaryConditionSet) + "_" + upwindScheme.getName() + "Results_t=" + std::to_string((int)initialSettings[2]) + "_points=" + std::to_string((int)initialSettings[3]) + "_CFL=" + std::to_string(initialSettings[4]) + typeOfExtension);
+	osImplicitScheme.open("C:/Users/Domowy/Desktop/Results/" + getInitialBoundaryConditionName(numberOfBoundaryConditionSet) + "_" + implicitUpwindScheme.getName() + "Results_t=" + std::to_string((int)initialSettings[2]) + "_points=" + std::to_string((int)initialSettings[3]) + "_CFL=" + std::to_string(initialSettings[4]) + typeOfExtension);
+	osLaxFile.open("C:/Users/Domowy/Desktop/Results/" + getInitialBoundaryConditionName(numberOfBoundaryConditionSet) + "_" + laxWendroff.getName() + "Results_t=" + std::to_string((int)initialSettings[2]) + "_points=" + std::to_string((int)initialSettings[3]) + "_CFL=" + std::to_string(initialSettings[4]) + typeOfExtension);
 	osRichtmyer.open("C:/Users/Domowy/Desktop/Results/" + getInitialBoundaryConditionName(numberOfBoundaryConditionSet) + "_" + solutionRichtmyer.getName() + "Results_t=" + std::to_string((int)initialSettings[2]) + "_points=" + std::to_string((int)initialSettings[3]) + "_CFL=" + std::to_string(initialSettings[4]) + typeOfExtension);
-	////Exporting full matrix for each timestep to file
-	////file << general.getMatrix();
-	//file << upwindScheme.getUpwindMatrix();
-	//file << 
-
-
-	//Saving schemes calculating results 
-	//osGeneralScheme  << general.getMatrix();
-	//osUpwindScheme  << upwindScheme.getUpwindMatrix();
-	//osImplicitScheme  << implicitUpwindScheme.getImplicitUpwindMatrix();
-	//osLaxFile  << laxWendroff.getLax_WendroffdMatrix();
+	
+	//Saving schemes calculated results 
+	osGeneralScheme  << general.getMatrix();
+	osUpwindScheme  << upwindScheme.getUpwindMatrix();
+	osImplicitScheme  << implicitUpwindScheme.getImplicitUpwindMatrix();
+	osLaxFile  << laxWendroff.getLax_WendroffdMatrix();
 	osRichtmyer  << solutionRichtmyer.getRichtmyer_multi_stepdMatrix();
 
 	//Closing alle opened streams at the end
-	//osGeneralScheme.close();
+	osGeneralScheme.close();
 	
-	//osUpwindScheme.close();
-	//osImplicitScheme.close();
-	//osLaxFile.close();
+	osUpwindScheme.close();
+	osImplicitScheme.close();
+	osLaxFile.close();
 	osRichtmyer.close();
 
 
@@ -148,32 +137,19 @@ int main()
 	vector<double> pointsSet = { 100, 200, 400 };
 	vector<double> timeSet = { 5, 10 };
 	for (auto v : setNumber)
-	{
-		
-		
+	{			
 			for (int j = 0; j < pointsSet.size(); ++j)
 			{
 
 				for (int i = 0; i < timeSet.size(); ++i)
 				{
-					if (timeSet[i] == 5 && pointsSet[j] == 100)
-					{
+					
 						for (int k = 0; k < courantNumberSet.size(); ++k)
 						{
 							vector <double> initialSettings = { -50, 50, timeSet[i], pointsSet[j], courantNumberSet[k] };
 							runSchemes(v, initialSettings, typeOfExtension);
 						}
-					}
-					else
-					{
-
-						for (int k = 0; k < courantNumberSet.size(); ++k)
-						{
-							vector <double> initialSettings = { -50, 50, timeSet[i], pointsSet[j], courantNumberSet[5] };
-							runSchemes(v, initialSettings, typeOfExtension);
-						}
-					}
-					
+									
 				}
 					
 
@@ -191,34 +167,3 @@ int main()
 	//system("pause");
 
 	
-
-
-
-
-
-
-
-
-
-
-//vector <double> results = { 231.43, 432.434, 3.2 };
-//displayVector(general.getMatrix().getColumn(5));
-//std::cout << "\nMatrix a is :\n" << mat;
-//displayVector(results);
-
-//system("pause");
-
-
-
-//Preparing streams for each scheme
-/*
-vector<std::string> schemesNames = {}
-
-vector<std::shared_ptr<std::ofstream> > streams;
-for (int i = 0; i < numStreams; i++) {
-std::shared_ptr<ofstream> out(new std::ofstream);
-string fileName = "text" + to_string(i) + ".txt";
-out->open(fileName.c_str());
-streams.push_back(out);
-}
-*/

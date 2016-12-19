@@ -144,7 +144,7 @@ void GeneralScheme::initializeSet(int setNumber)
 	
 		try
 		{
-			//put_timeValues();
+		
 			double actualValue = xMin;
 			for (int i = 0; i < numberOfSpacePoints ; ++i)
 			{

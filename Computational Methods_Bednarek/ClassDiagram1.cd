@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" GroupingSetting="Access">
+  <Class Name="DecimalSeparator&lt;CharT&gt;">
+    <Position X="9.25" Y="3.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAgAAA=</HashCode>
+      <FileName>main.cpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ExplicitUpwindScheme">
+    <Position X="1" Y="8.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAAAACAAAAAAAACAAAAAiAIAAAAEAAAAAAA=</HashCode>
+      <FileName>ExplicitUpwindScheme.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GeneralScheme">
+    <Position X="5.75" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AQRJIAABAAjAAAAIEAAkAAAgICiEGIAAAAYEQAABBAQ=</HashCode>
+      <FileName>GeneralScheme.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ImplicitUpwindScheme">
+    <Position X="3.75" Y="8.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAAAAAAAAIEAAAIAACAIAAAAEAAAAAAA=</HashCode>
+      <FileName>ImplicitUpwindScheme.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Lax_Wendroff">
+    <Position X="7.25" Y="8.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAAAAAAAAAAACBIAAAAECAgAAAA=</HashCode>
+      <FileName>Lax_Wendroff.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Matrix">
+    <Position X="3" Y="2.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>QAAAAQAAQEAAAAAAAAAAAAEAAAAgAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>Matrix.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MathFunctions">
+    <Position X="9.25" Y="1.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAQAAAAABAAAAQAAAAAAAAAAAQ=</HashCode>
+      <FileName>MathFunctions.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Richtmyer_multi_step">
+    <Position X="10.25" Y="8.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAAAAAAAAAAAABAAACAIgAAAEAEAAgAA=</HashCode>
+      <FileName>Richtmyer_multi_step.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Typedef Name="mat" Collapsed="true">
+    <Position X="9.25" Y="6.25" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Matrix.cpp</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

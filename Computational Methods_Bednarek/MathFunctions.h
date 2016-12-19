@@ -1,5 +1,10 @@
 #pragma once
 #include <cmath>
+
+/**
+@brief Class 
+
+*/
 class MathFunctions
 {
 public:

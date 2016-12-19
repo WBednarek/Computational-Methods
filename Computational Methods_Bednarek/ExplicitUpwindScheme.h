@@ -14,7 +14,7 @@ class ExplicitUpwindScheme : public GeneralScheme
 {
 
 	std::string methodName;
-	Matrix explicitResutls;
+	Matrix explicitResutls; 
 
 public:
 	
@@ -25,10 +25,25 @@ public:
 		double CFL);
 	~ExplicitUpwindScheme();
 
+	/**
+	@brief Virtual method which solves Explicit Upwind Scheme
 
+	@param Variable for inidicating boundary initialization set type, 1 or 2 respectively for:  sign type and exponential type
+
+	*/
 	virtual void solve(int setNumber) override;
-	//double solutionFunctionExplicitScheme(int numberOfSet, Matrix toUpwindSchemeCalculations);
+	/**
+	@brief Method returns Matrix where Explicit Upwind Scheme solution is stored
+
+	@return Matrix with calculated  Explicit Upwind Scheme
+
+	*/
 	Matrix ExplicitUpwindScheme::getUpwindMatrix();
+	/**
+	@brief Virtual method to returns name of ExplicitUpwindScheme class
+
+	@return name of ExplicitUpwindScheme class
+	*/
 	virtual std::string ExplicitUpwindScheme::getName() override;
 
 };

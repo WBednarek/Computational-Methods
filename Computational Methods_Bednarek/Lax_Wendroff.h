@@ -18,10 +18,26 @@ public:
 
 	virtual ~Lax_Wendroff();
 
+	/**
+	@brief Virtual method which solves Lax-Wendroff
 
+	@param Variable for inidicating boundary initialization set type, 1 or 2 respectively for:  sign type and exponential type
+
+	*/
 	virtual void solve(int setNumber) override;
 	//double solutionFunctionExplicitScheme(int numberOfSet, Matrix toUpwindSchemeCalculations);
+	/**
+	@brief Method returns Matrix where Lax-Wendroff solution is stored
+
+	@return Matrix with calculated Lax-Wendroff method
+
+	*/
 	Matrix Lax_Wendroff::getLax_WendroffdMatrix();
+	/**
+	@brief Virtual method to returns name of Lax-Wendroff class
+
+	@return name of Lax-Wendroff class
+	*/
 	virtual std::string Lax_Wendroff::getName() override;
 
 };

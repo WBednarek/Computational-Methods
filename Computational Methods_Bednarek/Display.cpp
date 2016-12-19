@@ -30,7 +30,7 @@ std::string display::getInitialBoundaryConditionName(int & numberOfBoundaryCondi
 
 }
 
-
+//Overloaded operator << for easy loading vector to file
 template<typename T>
 std::ostream &operator <<(std::ostream &out, const std::vector<T> &v)
 {
