@@ -130,7 +130,7 @@ int main()
 {
 
 	//Number of boundary condition set. 1 for sign boundary set type ; 2 for exp boundary set type 
-	vector<int> setNumber = {2};
+	vector<int> setNumber = {1};
 
 
 
@@ -144,7 +144,7 @@ int main()
 
 	//Running program using above settings for all initial boundary types
 
-	vector<double> courantNumberSet = { 0.25 ,0.5, 0.75, 0.999, 2, 3 ,5};
+	vector<double> courantNumberSet = { 0.25 ,0.5, 0.75, 0.999, 1.999, 3 ,5};
 	vector<double> pointsSet = { 100, 200, 400 };
 	vector<double> timeSet = { 5, 10 };
 	for (auto v : setNumber)
@@ -169,7 +169,7 @@ int main()
 
 						for (int k = 0; k < courantNumberSet.size(); ++k)
 						{
-							vector <double> initialSettings = { -50, 50, timeSet[i], pointsSet[j], courantNumberSet[3] };
+							vector <double> initialSettings = { -50, 50, timeSet[i], pointsSet[j], courantNumberSet[5] };
 							runSchemes(v, initialSettings, typeOfExtension);
 						}
 					}
