@@ -1,4 +1,7 @@
 ﻿  main.cpp
-c:\users\domowy\desktop\dokumenty wiktora\v rok\computional methods\assignment code wbednarek\computational-methods\computational methods_bednarek\main.cpp(151): warning C4018: '<': signed/unsigned mismatch
+c:\users\domowy\desktop\dokumenty wiktora\v rok\computional methods\assignment code wbednarek\computational-methods\computational methods_bednarek\main.cpp(154): warning C4018: '<': signed/unsigned mismatch
+c:\users\domowy\desktop\dokumenty wiktora\v rok\computional methods\assignment code wbednarek\computational-methods\computational methods_bednarek\main.cpp(157): warning C4018: '<': signed/unsigned mismatch
+c:\users\domowy\desktop\dokumenty wiktora\v rok\computional methods\assignment code wbednarek\computational-methods\computational methods_bednarek\main.cpp(161): warning C4018: '<': signed/unsigned mismatch
+c:\users\domowy\desktop\dokumenty wiktora\v rok\computional methods\assignment code wbednarek\computational-methods\computational methods_bednarek\main.cpp(170): warning C4018: '<': signed/unsigned mismatch
   Computational Methods_Bednarek.vcxproj -> C:\Users\Domowy\Desktop\Dokumenty Wiktora\V rok\Computional Methods\Assignment Code WBednarek\Computational-Methods\Debug\Computational Methods_Bednarek.exe
   Computational Methods_Bednarek.vcxproj -> C:\Users\Domowy\Desktop\Dokumenty Wiktora\V rok\Computional Methods\Assignment Code WBednarek\Computational-Methods\Debug\Computational Methods_Bednarek.pdb (Full PDB)

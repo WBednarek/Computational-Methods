@@ -65,18 +65,18 @@ void runSchemes(int numberOfBoundaryConditionSet, vector <double> initialSetting
 
 	GeneralScheme general = GeneralScheme(initialSettigsSet[0][0], initialSettings[1], initialSettings[2], initialSettings[3], initialSettings[4]);
 	general.solve(numberOfBoundaryConditionSet);
-
+	/*
 	ExplicitUpwindScheme upwindScheme(initialSettings[0], initialSettings[1], initialSettings[2], initialSettings[3], initialSettings[4]);
 	upwindScheme.solve(numberOfBoundaryConditionSet);
-
+	
 	ImplicitUpwindScheme implicitUpwindScheme(initialSettings[0], initialSettings[1], initialSettings[2], initialSettings[3], initialSettings[4]);
-	implicitUpwindScheme.solve(numberOfBoundaryConditionSet);
-
+	implicitUpwindScheme.solve(numberOfBoundaryConditionSet);*/
+	
 	Lax_Wendroff laxWendroff(initialSettings[0], initialSettings[1], initialSettings[2], initialSettings[3], initialSettings[4]);
 	laxWendroff.solve(numberOfBoundaryConditionSet);
 
-	Richtmyer_multi_step solutionRichtmyer(initialSettings[0], initialSettings[1], initialSettings[2], initialSettings[3], initialSettings[4]);
-	solutionRichtmyer.solve(numberOfBoundaryConditionSet);
+	//Richtmyer_multi_step solutionRichtmyer(initialSettings[0], initialSettings[1], initialSettings[2], initialSettings[3], initialSettings[4]);
+	//solutionRichtmyer.solve(numberOfBoundaryConditionSet);
 
 
 	std::ofstream osGeneralScheme;
@@ -96,9 +96,9 @@ void runSchemes(int numberOfBoundaryConditionSet, vector <double> initialSetting
 
 	//Open/create file with selected extension. It clold be for instance exel files extensions (.xls; .xlsx).
 	osGeneralScheme.open("C:/Users/Domowy/Desktop/Results/" + getInitialBoundaryConditionName(numberOfBoundaryConditionSet) + "_" + general.getName() + "Results_t=" + std::to_string((int)initialSettings[2]) + "_points=" + std::to_string((int)initialSettings[3]) + "_CFL=" + std::to_string(initialSettings[4]) + typeOfExtension);
-	osUpwindScheme.open("C:/Users/Domowy/Desktop/Results/" + getInitialBoundaryConditionName(numberOfBoundaryConditionSet) + "_" + upwindScheme.getName() + "Results_t=" + std::to_string((int)initialSettings[2]) + "_points=" + std::to_string((int)initialSettings[3]) + "_CFL=" + std::to_string(initialSettings[4]) + typeOfExtension);
+	//osUpwindScheme.open("C:/Users/Domowy/Desktop/Results/" + getInitialBoundaryConditionName(numberOfBoundaryConditionSet) + "_" + upwindScheme.getName() + "Results_t=" + std::to_string((int)initialSettings[2]) + "_points=" + std::to_string((int)initialSettings[3]) + "_CFL=" + std::to_string(initialSettings[4]) + typeOfExtension);
 	//osImplicitScheme.open("C:/Users/Domowy/Desktop/Results/" + getInitialBoundaryConditionName(numberOfBoundaryConditionSet) + "_" + implicitUpwindScheme.getName() + "Results_t=" + std::to_string((int)initialSettings[2]) + "_points=" + std::to_string((int)initialSettings[3]) + "_CFL=" + std::to_string(initialSettings[4]) + typeOfExtension);
-	//osLaxFile.open("C:/Users/Domowy/Desktop/Results/" + getInitialBoundaryConditionName(numberOfBoundaryConditionSet) + "_" + laxWendroff.getName() + "Results_t=" + std::to_string((int)initialSettings[2]) + "_points=" + std::to_string((int)initialSettings[3]) + "_CFL=" + std::to_string(initialSettings[4]) + typeOfExtension);
+	osLaxFile.open("C:/Users/Domowy/Desktop/Results/" + getInitialBoundaryConditionName(numberOfBoundaryConditionSet) + "_" + laxWendroff.getName() + "Results_t=" + std::to_string((int)initialSettings[2]) + "_points=" + std::to_string((int)initialSettings[3]) + "_CFL=" + std::to_string(initialSettings[4]) + typeOfExtension);
 	//osRichtmyer.open("C:/Users/Domowy/Desktop/Results/" + getInitialBoundaryConditionName(numberOfBoundaryConditionSet) + "_" + solutionRichtmyer.getName() + "Results_t=" + std::to_string((int)initialSettings[2]) + "_points=" + std::to_string((int)initialSettings[3]) + "_CFL=" + std::to_string(initialSettings[4]) + typeOfExtension);
 	////Exporting full matrix for each timestep to file
 	////file << general.getMatrix();
@@ -108,17 +108,18 @@ void runSchemes(int numberOfBoundaryConditionSet, vector <double> initialSetting
 
 	//Saving schemes calculating results 
 	osGeneralScheme  << general.getMatrix();
-	osUpwindScheme  << upwindScheme.getUpwindMatrix();
-	osImplicitScheme  << implicitUpwindScheme.getImplicitUpwindMatrix();
+	//osUpwindScheme  << upwindScheme.getUpwindMatrix();
+	//osImplicitScheme  << implicitUpwindScheme.getImplicitUpwindMatrix();
 	osLaxFile  << laxWendroff.getLax_WendroffdMatrix();
-	osRichtmyer  << solutionRichtmyer.getRichtmyer_multi_stepdMatrix();
+	//osRichtmyer  << solutionRichtmyer.getRichtmyer_multi_stepdMatrix();
 
 	//Closing alle opened streams at the end
 	osGeneralScheme.close();
+	
 	osUpwindScheme.close();
-	osImplicitScheme.close();
+	//osImplicitScheme.close();
 	osLaxFile.close();
-	osRichtmyer.close();
+	//osRichtmyer.close();
 
 
 }
@@ -144,22 +145,53 @@ int main()
 	//Running program using above settings for all initial boundary types
 
 	vector<double> courantNumberSet = { 0.25 ,0.5, 0.75, 0.999};
+	vector<double> pointsSet = { 100, 200, 400 };
+	vector<double> timeSet = { 5, 10 };
 	for (auto v : setNumber)
 	{
-		vector <double> initialSettings = { -50, 50, 5, 100, courantNumberSet[3] };
-		runSchemes(v, initialSettings, typeOfExtension);
-		for ( int i = 0; i < courantNumberSet.size(); ++i )
-		{
 		
+		
+			for (int j = 0; j < pointsSet.size(); ++j)
+			{
+
+				for (int i = 0; i < timeSet.size(); ++i)
+				{
+					if (timeSet[i] == 5 && pointsSet[j] == 100)
+					{
+						for (int k = 0; k < courantNumberSet.size(); ++k)
+						{
+							vector <double> initialSettings = { -50, 50, timeSet[i], pointsSet[j], courantNumberSet[k] };
+							runSchemes(v, initialSettings, typeOfExtension);
+						}
+					}
+					else
+					{
+
+						for (int k = 0; k < courantNumberSet.size(); ++k)
+						{
+							vector <double> initialSettings = { -50, 50, timeSet[i], pointsSet[j], courantNumberSet[3] };
+							runSchemes(v, initialSettings, typeOfExtension);
+						}
+					}
+					
+				}
+					
+
+			}
+			
 			
 		}
+
+
+	return 0;
+
 	}
 
 
 	//system("pause");
 
-	return 0;
-}
+	
+
 
 
 
