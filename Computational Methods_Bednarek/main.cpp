@@ -87,11 +87,11 @@ void runSchemes(int numberOfBoundaryConditionSet, vector <double> initialSetting
 	
 
 	//Operation helps to plot charts in programs such as Exel. Setting type of decimal separator depending on current geographical location. In some countries comma in default separator in numbers in others dot
-	/*osGeneralScheme.imbue(std::locale(std::cout.getloc(), new DecimalSeparator<char>(',')));
-	osUpwindScheme.imbue(std::locale(std::cout.getloc(), new DecimalSeparator<char>(',')));
-	osImplicitScheme.imbue(std::locale(std::cout.getloc(), new DecimalSeparator<char>(',')));
-	osLaxFile.imbue(std::locale(std::cout.getloc(), new DecimalSeparator<char>(',')));
-	osRichtmyer.imbue(std::locale(std::cout.getloc(), new DecimalSeparator<char>(',')));*/
+	//osGeneralScheme.imbue(std::locale(std::cout.getloc(), new DecimalSeparator<char>(',')));
+	//osUpwindScheme.imbue(std::locale(std::cout.getloc(), new DecimalSeparator<char>(',')));
+	//osImplicitScheme.imbue(std::locale(std::cout.getloc(), new DecimalSeparator<char>(',')));
+	//osLaxFile.imbue(std::locale(std::cout.getloc(), new DecimalSeparator<char>(',')));
+	//osRichtmyer.imbue(std::locale(std::cout.getloc(), new DecimalSeparator<char>(',')));
 
 
 	//Open/create file with selected extension. It clold be for instance exel files extensions (.xls; .xlsx).
@@ -146,12 +146,13 @@ int main()
 	vector<double> courantNumberSet = { 0.25 ,0.5, 0.75, 0.999, 1.25, 1.5, 1.75, 2 };
 	for (auto v : setNumber)
 	{
-		for ( int i = 0; i < courantNumberSet.size(); ++i )
+		vector <double> initialSettings = { -50, 50, 10, 400, 0.999 };
+		runSchemes(v, initialSettings, typeOfExtension);
+		/*for ( int i = 0; i < courantNumberSet.size(); ++i )
 		{
 
-			vector <double> initialSettings = { -50, 50, 5, 100, courantNumberSet[i] };
-			runSchemes(v, initialSettings, typeOfExtension);
-		}
+			
+		}*/
 	}
 
 
