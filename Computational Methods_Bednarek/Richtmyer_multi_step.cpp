@@ -33,11 +33,11 @@ void Richtmyer_multi_step::solve(int setNumber)
 
 
 		//Calculating Richtmyer_multi_step scheme cooeficients before loop for code claryti and performance profit
-		auto coef1 = ( 1 - (CFL/2) ) / 2;
-		auto coef2 = ( 1 + (CFL/2) ) / 2;
-		auto coef3 = CFL / 2;
-		
-		
+		double coef1 = 0.5 * (1 - (CFL / 2));
+		double coef2 = 0.5 * (1 + (CFL / 2));
+		double coef3 = CFL / 2;
+
+
 
 		//Main time loop iterating for each time point
 		for (int j = 0; j < numberOfTimePoints - 1; ++j)
