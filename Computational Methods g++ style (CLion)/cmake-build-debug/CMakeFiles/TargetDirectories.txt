@@ -1,0 +1,3 @@
+/home/wik/Pulpit/Dokumenty Wiktora/V rok/Cranfield/High Performance Technical Computing/Computational-Methods-master/Computational Methods_Bednarek/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/wik/Pulpit/Dokumenty Wiktora/V rok/Cranfield/High Performance Technical Computing/Computational-Methods-master/Computational Methods_Bednarek/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/wik/Pulpit/Dokumenty Wiktora/V rok/Cranfield/High Performance Technical Computing/Computational-Methods-master/Computational Methods_Bednarek/cmake-build-debug/CMakeFiles/Computational_Methods_Bednarek.dir

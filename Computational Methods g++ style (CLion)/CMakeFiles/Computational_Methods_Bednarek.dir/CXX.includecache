@@ -1,0 +1,130 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/wik/Pulpit/Dokumenty Wiktora/V rok/Cranfield/High Performance Technical Computing/Computational-Methods-master/Computational Methods_Bednarek/Display.cpp
+iterator
+-
+Display.h
+/home/wik/Pulpit/Dokumenty Wiktora/V rok/Cranfield/High Performance Technical Computing/Computational-Methods-master/Computational Methods_Bednarek/Display.h
+
+/home/wik/Pulpit/Dokumenty Wiktora/V rok/Cranfield/High Performance Technical Computing/Computational-Methods-master/Computational Methods_Bednarek/Display.h
+vector
+-
+iostream
+-
+
+/home/wik/Pulpit/Dokumenty Wiktora/V rok/Cranfield/High Performance Technical Computing/Computational-Methods-master/Computational Methods_Bednarek/ExplicitUpwindScheme.cpp
+ExplicitUpwindScheme.h
+/home/wik/Pulpit/Dokumenty Wiktora/V rok/Cranfield/High Performance Technical Computing/Computational-Methods-master/Computational Methods_Bednarek/ExplicitUpwindScheme.h
+
+/home/wik/Pulpit/Dokumenty Wiktora/V rok/Cranfield/High Performance Technical Computing/Computational-Methods-master/Computational Methods_Bednarek/ExplicitUpwindScheme.h
+GeneralScheme.h
+/home/wik/Pulpit/Dokumenty Wiktora/V rok/Cranfield/High Performance Technical Computing/Computational-Methods-master/Computational Methods_Bednarek/GeneralScheme.h
+
+/home/wik/Pulpit/Dokumenty Wiktora/V rok/Cranfield/High Performance Technical Computing/Computational-Methods-master/Computational Methods_Bednarek/GeneralScheme.cpp
+GeneralScheme.h
+/home/wik/Pulpit/Dokumenty Wiktora/V rok/Cranfield/High Performance Technical Computing/Computational-Methods-master/Computational Methods_Bednarek/GeneralScheme.h
+
+/home/wik/Pulpit/Dokumenty Wiktora/V rok/Cranfield/High Performance Technical Computing/Computational-Methods-master/Computational Methods_Bednarek/GeneralScheme.h
+memory
+-
+cmath
+-
+exception
+-
+iostream
+-
+algorithm
+-
+Matrix.h
+/home/wik/Pulpit/Dokumenty Wiktora/V rok/Cranfield/High Performance Technical Computing/Computational-Methods-master/Computational Methods_Bednarek/Matrix.h
+MathFunctions.h
+/home/wik/Pulpit/Dokumenty Wiktora/V rok/Cranfield/High Performance Technical Computing/Computational-Methods-master/Computational Methods_Bednarek/MathFunctions.h
+
+/home/wik/Pulpit/Dokumenty Wiktora/V rok/Cranfield/High Performance Technical Computing/Computational-Methods-master/Computational Methods_Bednarek/ImplicitUpwindScheme.cpp
+ImplicitUpwindScheme.h
+/home/wik/Pulpit/Dokumenty Wiktora/V rok/Cranfield/High Performance Technical Computing/Computational-Methods-master/Computational Methods_Bednarek/ImplicitUpwindScheme.h
+
+/home/wik/Pulpit/Dokumenty Wiktora/V rok/Cranfield/High Performance Technical Computing/Computational-Methods-master/Computational Methods_Bednarek/ImplicitUpwindScheme.h
+GeneralScheme.h
+/home/wik/Pulpit/Dokumenty Wiktora/V rok/Cranfield/High Performance Technical Computing/Computational-Methods-master/Computational Methods_Bednarek/GeneralScheme.h
+
+/home/wik/Pulpit/Dokumenty Wiktora/V rok/Cranfield/High Performance Technical Computing/Computational-Methods-master/Computational Methods_Bednarek/Lax_Wendroff.cpp
+Lax_Wendroff.h
+/home/wik/Pulpit/Dokumenty Wiktora/V rok/Cranfield/High Performance Technical Computing/Computational-Methods-master/Computational Methods_Bednarek/Lax_Wendroff.h
+
+/home/wik/Pulpit/Dokumenty Wiktora/V rok/Cranfield/High Performance Technical Computing/Computational-Methods-master/Computational Methods_Bednarek/Lax_Wendroff.h
+GeneralScheme.h
+/home/wik/Pulpit/Dokumenty Wiktora/V rok/Cranfield/High Performance Technical Computing/Computational-Methods-master/Computational Methods_Bednarek/GeneralScheme.h
+
+/home/wik/Pulpit/Dokumenty Wiktora/V rok/Cranfield/High Performance Technical Computing/Computational-Methods-master/Computational Methods_Bednarek/MathFunctions.cpp
+MathFunctions.h
+/home/wik/Pulpit/Dokumenty Wiktora/V rok/Cranfield/High Performance Technical Computing/Computational-Methods-master/Computational Methods_Bednarek/MathFunctions.h
+
+/home/wik/Pulpit/Dokumenty Wiktora/V rok/Cranfield/High Performance Technical Computing/Computational-Methods-master/Computational Methods_Bednarek/MathFunctions.h
+cmath
+-
+
+/home/wik/Pulpit/Dokumenty Wiktora/V rok/Cranfield/High Performance Technical Computing/Computational-Methods-master/Computational Methods_Bednarek/Matrix.cpp
+Matrix.h
+/home/wik/Pulpit/Dokumenty Wiktora/V rok/Cranfield/High Performance Technical Computing/Computational-Methods-master/Computational Methods_Bednarek/Matrix.h
+
+/home/wik/Pulpit/Dokumenty Wiktora/V rok/Cranfield/High Performance Technical Computing/Computational-Methods-master/Computational Methods_Bednarek/Matrix.h
+vector
+-
+ostream
+-
+iostream
+-
+fstream
+-
+memory
+-
+
+/home/wik/Pulpit/Dokumenty Wiktora/V rok/Cranfield/High Performance Technical Computing/Computational-Methods-master/Computational Methods_Bednarek/Richtmyer_multi_step.cpp
+Richtmyer_multi_step.h
+/home/wik/Pulpit/Dokumenty Wiktora/V rok/Cranfield/High Performance Technical Computing/Computational-Methods-master/Computational Methods_Bednarek/Richtmyer_multi_step.h
+
+/home/wik/Pulpit/Dokumenty Wiktora/V rok/Cranfield/High Performance Technical Computing/Computational-Methods-master/Computational Methods_Bednarek/Richtmyer_multi_step.h
+GeneralScheme.h
+/home/wik/Pulpit/Dokumenty Wiktora/V rok/Cranfield/High Performance Technical Computing/Computational-Methods-master/Computational Methods_Bednarek/GeneralScheme.h
+
+/home/wik/Pulpit/Dokumenty Wiktora/V rok/Cranfield/High Performance Technical Computing/Computational-Methods-master/Computational Methods_Bednarek/main.cpp
+iostream
+-
+vector
+-
+stdio.h
+-
+iostream
+-
+iterator
+-
+string
+-
+memory
+-
+map
+-
+iomanip
+-
+MathFunctions.h
+/home/wik/Pulpit/Dokumenty Wiktora/V rok/Cranfield/High Performance Technical Computing/Computational-Methods-master/Computational Methods_Bednarek/MathFunctions.h
+GeneralScheme.h
+/home/wik/Pulpit/Dokumenty Wiktora/V rok/Cranfield/High Performance Technical Computing/Computational-Methods-master/Computational Methods_Bednarek/GeneralScheme.h
+ExplicitUpwindScheme.h
+/home/wik/Pulpit/Dokumenty Wiktora/V rok/Cranfield/High Performance Technical Computing/Computational-Methods-master/Computational Methods_Bednarek/ExplicitUpwindScheme.h
+ImplicitUpwindScheme.h
+/home/wik/Pulpit/Dokumenty Wiktora/V rok/Cranfield/High Performance Technical Computing/Computational-Methods-master/Computational Methods_Bednarek/ImplicitUpwindScheme.h
+Lax_Wendroff.h
+/home/wik/Pulpit/Dokumenty Wiktora/V rok/Cranfield/High Performance Technical Computing/Computational-Methods-master/Computational Methods_Bednarek/Lax_Wendroff.h
+Richtmyer_multi_step.h
+/home/wik/Pulpit/Dokumenty Wiktora/V rok/Cranfield/High Performance Technical Computing/Computational-Methods-master/Computational Methods_Bednarek/Richtmyer_multi_step.h
+Display.h
+/home/wik/Pulpit/Dokumenty Wiktora/V rok/Cranfield/High Performance Technical Computing/Computational-Methods-master/Computational Methods_Bednarek/Display.h
+

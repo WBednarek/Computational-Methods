@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="Computational_Methods_Bednarek"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/wik/Pulpit/Dokumenty Wiktora/V rok/Cranfield/High Performance Technical Computing/Computational-Methods-master/Computational Methods_Bednarek/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/wik/Pulpit/Dokumenty\ Wiktora/V\ rok/Cranfield/High\ Performance\ Technical\ Computing/Computational-Methods-master/Computational\ Methods_Bednarek/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/wik/Pulpit/Dokumenty\ Wiktora/V\ rok/Cranfield/High\ Performance\ Technical\ Computing/Computational-Methods-master/Computational\ Methods_Bednarek/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/wik/Pulpit/Dokumenty\ Wiktora/V\ rok/Cranfield/High\ Performance\ Technical\ Computing/Computational-Methods-master/Computational\ Methods_Bednarek/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/wik/Pulpit/Dokumenty\ Wiktora/V\ rok/Cranfield/High\ Performance\ Technical\ Computing/Computational-Methods-master/Computational\ Methods_Bednarek/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/wik/Pulpit/Dokumenty Wiktora/V rok/Cranfield/High Performance Technical Computing/Computational-Methods-master/Computational Methods_Bednarek/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/wik/Pulpit/Dokumenty\ Wiktora/V\ rok/Cranfield/High\ Performance\ Technical\ Computing/Computational-Methods-master/Computational\ Methods_Bednarek/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/wik/Pulpit/Dokumenty\ Wiktora/V\ rok/Cranfield/High\ Performance\ Technical\ Computing/Computational-Methods-master/Computational\ Methods_Bednarek/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/wik/Pulpit/Dokumenty\ Wiktora/V\ rok/Cranfield/High\ Performance\ Technical\ Computing/Computational-Methods-master/Computational\ Methods_Bednarek/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/wik/Pulpit/Dokumenty\ Wiktora/V\ rok/Cranfield/High\ Performance\ Technical\ Computing/Computational-Methods-master/Computational\ Methods_Bednarek/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/wik/Pulpit/Dokumenty Wiktora/V rok/Cranfield/High Performance Technical Computing/Computational-Methods-master/Computational Methods_Bednarek/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/wik/Pulpit/Dokumenty\ Wiktora/V\ rok/Cranfield/High\ Performance\ Technical\ Computing/Computational-Methods-master/Computational\ Methods_Bednarek/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/wik/Pulpit/Dokumenty\ Wiktora/V\ rok/Cranfield/High\ Performance\ Technical\ Computing/Computational-Methods-master/Computational\ Methods_Bednarek/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/wik/Pulpit/Dokumenty\ Wiktora/V\ rok/Cranfield/High\ Performance\ Technical\ Computing/Computational-Methods-master/Computational\ Methods_Bednarek/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/wik/Pulpit/Dokumenty\ Wiktora/V\ rok/Cranfield/High\ Performance\ Technical\ Computing/Computational-Methods-master/Computational\ Methods_Bednarek/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Computational_Methods_Bednarek">
+				<Option output="/home/wik/Pulpit/Dokumenty Wiktora/V rok/Cranfield/High Performance Technical Computing/Computational-Methods-master/Computational Methods_Bednarek/cmake-build-debug/Computational_Methods_Bednarek" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/wik/Pulpit/Dokumenty Wiktora/V rok/Cranfield/High Performance Technical Computing/Computational-Methods-master/Computational Methods_Bednarek/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/usr/include/c++/5"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
+					<Add directory="/usr/include/c++/5/backward"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/wik/Pulpit/Dokumenty\ Wiktora/V\ rok/Cranfield/High\ Performance\ Technical\ Computing/Computational-Methods-master/Computational\ Methods_Bednarek/cmake-build-debug/Makefile&quot;  VERBOSE=1 Computational_Methods_Bednarek"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/wik/Pulpit/Dokumenty\ Wiktora/V\ rok/Cranfield/High\ Performance\ Technical\ Computing/Computational-Methods-master/Computational\ Methods_Bednarek/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/wik/Pulpit/Dokumenty\ Wiktora/V\ rok/Cranfield/High\ Performance\ Technical\ Computing/Computational-Methods-master/Computational\ Methods_Bednarek/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/wik/Pulpit/Dokumenty\ Wiktora/V\ rok/Cranfield/High\ Performance\ Technical\ Computing/Computational-Methods-master/Computational\ Methods_Bednarek/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Computational_Methods_Bednarek/fast">
+				<Option output="/home/wik/Pulpit/Dokumenty Wiktora/V rok/Cranfield/High Performance Technical Computing/Computational-Methods-master/Computational Methods_Bednarek/cmake-build-debug/Computational_Methods_Bednarek" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/wik/Pulpit/Dokumenty Wiktora/V rok/Cranfield/High Performance Technical Computing/Computational-Methods-master/Computational Methods_Bednarek/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/usr/include/c++/5"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
+					<Add directory="/usr/include/c++/5/backward"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/wik/Pulpit/Dokumenty\ Wiktora/V\ rok/Cranfield/High\ Performance\ Technical\ Computing/Computational-Methods-master/Computational\ Methods_Bednarek/cmake-build-debug/Makefile&quot;  VERBOSE=1 Computational_Methods_Bednarek/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/wik/Pulpit/Dokumenty\ Wiktora/V\ rok/Cranfield/High\ Performance\ Technical\ Computing/Computational-Methods-master/Computational\ Methods_Bednarek/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/wik/Pulpit/Dokumenty\ Wiktora/V\ rok/Cranfield/High\ Performance\ Technical\ Computing/Computational-Methods-master/Computational\ Methods_Bednarek/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/wik/Pulpit/Dokumenty\ Wiktora/V\ rok/Cranfield/High\ Performance\ Technical\ Computing/Computational-Methods-master/Computational\ Methods_Bednarek/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/wik/Pulpit/Dokumenty Wiktora/V rok/Cranfield/High Performance Technical Computing/Computational-Methods-master/Computational Methods_Bednarek/Display.cpp">
+			<Option target="Computational_Methods_Bednarek"/>
+		</Unit>
+		<Unit filename="/home/wik/Pulpit/Dokumenty Wiktora/V rok/Cranfield/High Performance Technical Computing/Computational-Methods-master/Computational Methods_Bednarek/Display.h">
+			<Option target="Computational_Methods_Bednarek"/>
+		</Unit>
+		<Unit filename="/home/wik/Pulpit/Dokumenty Wiktora/V rok/Cranfield/High Performance Technical Computing/Computational-Methods-master/Computational Methods_Bednarek/ExplicitUpwindScheme.cpp">
+			<Option target="Computational_Methods_Bednarek"/>
+		</Unit>
+		<Unit filename="/home/wik/Pulpit/Dokumenty Wiktora/V rok/Cranfield/High Performance Technical Computing/Computational-Methods-master/Computational Methods_Bednarek/ExplicitUpwindScheme.h">
+			<Option target="Computational_Methods_Bednarek"/>
+		</Unit>
+		<Unit filename="/home/wik/Pulpit/Dokumenty Wiktora/V rok/Cranfield/High Performance Technical Computing/Computational-Methods-master/Computational Methods_Bednarek/GeneralScheme.cpp">
+			<Option target="Computational_Methods_Bednarek"/>
+		</Unit>
+		<Unit filename="/home/wik/Pulpit/Dokumenty Wiktora/V rok/Cranfield/High Performance Technical Computing/Computational-Methods-master/Computational Methods_Bednarek/GeneralScheme.h">
+			<Option target="Computational_Methods_Bednarek"/>
+		</Unit>
+		<Unit filename="/home/wik/Pulpit/Dokumenty Wiktora/V rok/Cranfield/High Performance Technical Computing/Computational-Methods-master/Computational Methods_Bednarek/ImplicitUpwindScheme.cpp">
+			<Option target="Computational_Methods_Bednarek"/>
+		</Unit>
+		<Unit filename="/home/wik/Pulpit/Dokumenty Wiktora/V rok/Cranfield/High Performance Technical Computing/Computational-Methods-master/Computational Methods_Bednarek/ImplicitUpwindScheme.h">
+			<Option target="Computational_Methods_Bednarek"/>
+		</Unit>
+		<Unit filename="/home/wik/Pulpit/Dokumenty Wiktora/V rok/Cranfield/High Performance Technical Computing/Computational-Methods-master/Computational Methods_Bednarek/Lax_Wendroff.cpp">
+			<Option target="Computational_Methods_Bednarek"/>
+		</Unit>
+		<Unit filename="/home/wik/Pulpit/Dokumenty Wiktora/V rok/Cranfield/High Performance Technical Computing/Computational-Methods-master/Computational Methods_Bednarek/Lax_Wendroff.h">
+			<Option target="Computational_Methods_Bednarek"/>
+		</Unit>
+		<Unit filename="/home/wik/Pulpit/Dokumenty Wiktora/V rok/Cranfield/High Performance Technical Computing/Computational-Methods-master/Computational Methods_Bednarek/MathFunctions.cpp">
+			<Option target="Computational_Methods_Bednarek"/>
+		</Unit>
+		<Unit filename="/home/wik/Pulpit/Dokumenty Wiktora/V rok/Cranfield/High Performance Technical Computing/Computational-Methods-master/Computational Methods_Bednarek/MathFunctions.h">
+			<Option target="Computational_Methods_Bednarek"/>
+		</Unit>
+		<Unit filename="/home/wik/Pulpit/Dokumenty Wiktora/V rok/Cranfield/High Performance Technical Computing/Computational-Methods-master/Computational Methods_Bednarek/Matrix.cpp">
+			<Option target="Computational_Methods_Bednarek"/>
+		</Unit>
+		<Unit filename="/home/wik/Pulpit/Dokumenty Wiktora/V rok/Cranfield/High Performance Technical Computing/Computational-Methods-master/Computational Methods_Bednarek/Matrix.h">
+			<Option target="Computational_Methods_Bednarek"/>
+		</Unit>
+		<Unit filename="/home/wik/Pulpit/Dokumenty Wiktora/V rok/Cranfield/High Performance Technical Computing/Computational-Methods-master/Computational Methods_Bednarek/Richtmyer_multi_step.cpp">
+			<Option target="Computational_Methods_Bednarek"/>
+		</Unit>
+		<Unit filename="/home/wik/Pulpit/Dokumenty Wiktora/V rok/Cranfield/High Performance Technical Computing/Computational-Methods-master/Computational Methods_Bednarek/Richtmyer_multi_step.h">
+			<Option target="Computational_Methods_Bednarek"/>
+		</Unit>
+		<Unit filename="/home/wik/Pulpit/Dokumenty Wiktora/V rok/Cranfield/High Performance Technical Computing/Computational-Methods-master/Computational Methods_Bednarek/main.cpp">
+			<Option target="Computational_Methods_Bednarek"/>
+		</Unit>
+		<Unit filename="/home/wik/Pulpit/Dokumenty Wiktora/V rok/Cranfield/High Performance Technical Computing/Computational-Methods-master/Computational Methods_Bednarek/main.h">
+			<Option target="Computational_Methods_Bednarek"/>
+		</Unit>
+		<Unit filename="/home/wik/Pulpit/Dokumenty Wiktora/V rok/Cranfield/High Performance Technical Computing/Computational-Methods-master/Computational Methods_Bednarek/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
